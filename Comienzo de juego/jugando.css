@@ -1,0 +1,129 @@
+body{
+    background-image: url(../imagenes/paisaje\ verde.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.botones-inc-dec{
+    border: none;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 5px;
+    transition: ease 0.5s;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill, minmax(200px,1fr)  /*Algo parecido al media query*/
+    );
+    gap: 30px;
+}
+
+#boton-incremento{
+    background: rgb(9, 202, 9);
+    color: white;
+    font-size: 30px;
+}
+
+#boton-decremento{
+    background-color: red;
+    font-size: 40px;
+    color: white;
+}
+
+#boton-incremento:hover{
+    background: rgb(10, 163, 10);
+}
+
+#boton-decremento:hover{
+    background-color: rgb(212, 23, 23);
+}
+
+.marcador {
+    background: rgb(121, 11, 121);
+    width: 130px;
+    min-height: 60vh;
+    position: relative;
+    margin: 0;
+    padding: 15px;
+}
+
+.ingresar_nombre_jugador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    outline: 1px solid rgb(0, 0, 0);
+    height: 30px;
+    width: 98%;
+    font-size: 20px;
+}
+
+.container-botones {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 1px; /* Alineación a la derecha */
+    top: 40%; /* Centrado vertical */
+    transform: translateY(25%); /* Ajustar el centro vertical */
+    transform: translateX(50%);
+}
+
+.boton_y_palabra {
+    display: flex;
+    flex-direction: column; /* Apilar la palabra encima de los botones */
+    align-items: center; /* Centrar la palabra horizontalmente */
+    height: 100%;
+    justify-content: center; /* Centrar verticalmente el contenido */
+}
+
+.casillero-palabra{
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    margin-top: 14px;
+    border: none;
+    pointer-events: none;
+    display: flex;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.boton-volver{
+    position: absolute;
+    border: none;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: translateX(25%);
+}
+
+@media (max-width:600px){
+    .marcador {
+        background: rgb(121, 11, 121);
+        width: 130px;
+        min-height: 42vh;
+        position: relative;
+        margin: 0;
+        padding: 15px;
+    }
+
+    .container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}

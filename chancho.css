@@ -1,0 +1,132 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    background-image: url(imagenes/fondito.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 50px 30px;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(255,255,255, 0.1), rgba(255,255,255,0));
+    backdrop-filter: blur(3px);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0, 0.37);
+    border-radius: 10px;
+    height: 450px;
+    width: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*Imagen principal de los chanchos*/
+.img-chanchos{
+    width: 230px;
+    height: 230px;
+    margin-bottom: 15px;
+    box-shadow: 1px 1px 12px #CDA357;
+    border: 1px solid #573d0c;
+}
+
+.borde-boton{
+    position: relative;
+    width: 225px;
+    height: 300px;
+    margin: 10px;
+    background: #99968f;
+    clip-path: polygon(25% 0%, 75% 0%, 90% 50%, 75% 90%, 25% 90%, 10% 50%);
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+    z-index: 1;
+}
+
+/*Botones*/
+.boton{
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    cursor: pointer;
+    font-size: 17px;
+    width: 30vh;
+    padding: 15px;
+    margin: 16px 0px;
+    color: #99968f;
+    background: rgb(17, 13, 85);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0, 0.37);
+    text-decoration: none;
+    clip-path: polygon(25% 0%, 75% 0%, 90% 50%, 75% 90%, 25% 90%, 10% 50%);
+    transition: ease 0.5s;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.icono-cartas{
+    width: 25px;
+    height: 25px;
+    margin-left: 7px;
+    display: none;
+}
+
+.boton:hover{
+    color: #f0f0f0;
+    background: #000046;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    .icono-cartas{
+        display: flex;
+    }
+}
+
+.redes img{
+    margin-top: 15px;
+    transition: ease 0.4s;
+}
+
+.redes img:first-child:hover{
+    transform: translateY(-6px);
+}
+
+p{
+    position: absolute;
+    color: white;
+    bottom: 0;
+    left: 0;
+    margin: 5px;
+    font-size: 12px;
+    user-select: none;
+}
+
+/*Media Query para ajustarlo celular*/
+@media (max-width:600px){
+    .redes img{
+        transition: none;
+    }
+
+    .redes img:first-child:hover{
+        transform: none;
+    }
+
+    p{
+        left: 27%;
+    }
+
+}
+
+
+
+
