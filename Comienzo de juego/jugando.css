@@ -6,6 +6,149 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+h1{
+    display: flex;
+    justify-content: center;
+}
+
+/*Ventana que aparece antes de jugar*/
+.container-modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.container-modal.mostrar{
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+    backdrop-filter: blur(10px);    /*Para que se vea un poco borroso*/
+    z-index: 1;
+}
+
+.container-modal .modal{
+    background-image: 
+    linear-gradient(
+      118deg in oklab,
+      oklch(60% .5 353) 11% 11%, oklch(80% .5 325) 96% 96%
+    );
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    width: 40%;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: ease 0.3s;
+}
+
+.container-modal .modal:hover{
+    box-shadow: 1px 1px 7px rgb(226, 44, 196);
+}
+
+.btn-modal a,
+.btn-modal button{
+    color: black;
+    color: aliceblue;
+    font-size: 15px;
+}
+
+/*Son los botones de la ventana modal*/
+.botones-modal{
+    text-decoration: none;
+    color: rgb(245, 240, 240);
+    padding: 8px;
+    margin: 15px;
+    border-radius: 10px;
+    transition: ease 0.5s;
+}
+
+.botones-modal:first-child{
+    background-color: rgb(17, 19, 141);
+    border: 3px solid rgb(9, 114, 212);
+}
+
+.botones-modal:nth-child(2){
+    width: 120px;
+    height: 40px;
+    background-color: rgb(235, 72, 221);
+    border: 3px solid rgb(138, 17, 118);
+}
+
+.botones-modal:nth-child(2):hover{
+    background-color: rgb(184, 60, 173);
+}
+
+form input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    background: rgb(207, 207, 207);
+    margin: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    outline: 1px solid black;
+}
+
+/*Mensaje de error cuando se ingresa mal la cantidad de jugadores*/
+p{
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+}
+
+/*Para las cartas españolas de las esquinas*/
+.cartas-españolas{
+    position: absolute;
+    width:150px; 
+    height: auto;
+}
+
+.cartas-españolas:first-child{
+    transform: translate(-190%,-90%);
+}
+
+.cartas-españolas:nth-child(2){
+    transform: translate(180%,80%);
+}
+
+/*Imagen chanchito es de la esquina*/
+.chanchito-esquina-1{
+    position: absolute;
+    width: 120px;
+    height: auto;
+    transform: translate(220%,-115%);
+}
+
+
+.chanchito-esquina-2{
+    position: absolute;
+    width: 120px;
+    height: auto;
+    transform: translate(-230%,110%);
+}
+
+.modal h1{
+    color: aliceblue;
+    margin-bottom: -1px;
+}
+
+
+/**************ELEMENTOS DEL JUEGO**************/
+
 .botones-inc-dec{
     border: none;
     border-radius: 100%;
@@ -22,10 +165,13 @@ body{
 
 .container{
     display: grid;
+    place-items: center;
     grid-template-columns: repeat(
         auto-fill, minmax(200px,1fr)  /*Algo parecido al media query*/
     );
-    gap: 30px;
+    gap: 20px;
+    width: 100%;
+    margin: auto;
 }
 
 #boton-incremento{
@@ -49,12 +195,21 @@ body{
 }
 
 .marcador {
-    background: rgb(121, 11, 121);
-    width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(24, 56, 146);
+    width: 155px;
     min-height: 60vh;
     position: relative;
     margin: 0;
     padding: 15px;
+    box-sizing: border-box;
+}
+
+
+.marcador:first-child{
+    display: none;
 }
 
 .ingresar_nombre_jugador {
@@ -88,6 +243,7 @@ body{
     align-items: center; /* Centrar la palabra horizontalmente */
     height: 100%;
     justify-content: center; /* Centrar verticalmente el contenido */
+    padding: 20px;
 }
 
 .casillero-palabra{
@@ -114,7 +270,7 @@ body{
 
 @media (max-width:600px){
     .marcador {
-        background: rgb(121, 11, 121);
+        background: rgb(24, 56, 146);
         width: 130px;
         min-height: 42vh;
         position: relative;
@@ -126,4 +282,40 @@ body{
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
+
+    .container-modal .modal{
+        width: 80%;
+        height: 40%;
+    }
+
+    /*Para las cartas españolas de las esquinas*/
+    .cartas-españolas{
+        position: absolute;
+        width:110px; 
+        height: auto;
+    }
+
+    .cartas-españolas:first-child{
+        transform: translate(-140%,-130%);
+    }
+
+    .cartas-españolas:nth-child(2){
+        transform: translate(140%,130%);
+    }
+
+    /*Imagen chanchito es de la esquina*/
+    .chanchito-esquina-1{
+        position: absolute;
+        width: 80px;
+        height: auto;
+        transform: translate(210%,-200%);
+    }
+
+    .chanchito-esquina-2{
+        position: absolute;
+        width: 80px;
+        height: auto;
+        transform: translate(-210%,200%);
+    }
+
 }

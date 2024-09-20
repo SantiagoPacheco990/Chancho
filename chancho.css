@@ -44,7 +44,7 @@ body {
     width: 225px;
     height: 300px;
     margin: 10px;
-    background: #99968f;
+    background: #f5f4f3;
     clip-path: polygon(25% 0%, 75% 0%, 90% 50%, 75% 90%, 25% 90%, 10% 50%);
     display: flex;
     justify-content: center;  
@@ -62,12 +62,12 @@ body {
     width: 30vh;
     padding: 15px;
     margin: 16px 0px;
-    color: #99968f;
+    color: #f5f4f3;
     background: rgb(17, 13, 85);
     box-shadow: 0 8px 32px 0 rgba(0,0,0, 0.37);
     text-decoration: none;
     clip-path: polygon(25% 0%, 75% 0%, 90% 50%, 75% 90%, 25% 90%, 10% 50%);
-    transition: ease 0.5s;
+    transition: ease 0.7s;
     z-index: 3;
     display: flex;
     align-items: center;
@@ -84,9 +84,7 @@ body {
 
 .boton:hover{
     color: #f0f0f0;
-    background: #000046;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: rgb(21, 111, 230);
     .icono-cartas{
         display: flex;
     }
@@ -100,6 +98,7 @@ body {
 .redes img:first-child:hover{
     transform: translateY(-6px);
 }
+
 
 p{
     position: absolute;
@@ -123,6 +122,12 @@ p{
 
     p{
         left: 27%;
+    }
+
+    .boton{
+        position: absolute;
+        width: 80%;
+        height: 17%;
     }
 
 }
