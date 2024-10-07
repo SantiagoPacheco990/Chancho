@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/imagenes/icono-de-pagina-chanchito.png">
     <title>Chancho</title>
     <link rel="stylesheet" href="jugando.css">
 </head>
 <body>
-    <h1>CHANCHO</h1>
+    <div class="container-titulo">
+        <img src="/imagenes/Marco-del-titulo.png" class="marco-titulo">
+        <h1 class="titulo">CHANCHO</h1>
+    </div>
     <div class="container">
         <div class="marcador">
             <input type="text" class="ingresar_nombre_jugador" maxlength="10">
@@ -28,17 +32,17 @@
         </div>
     </div>
     <div class="container-modal">
-        <img src="/imagenes/cartas-españolas.png" class="cartas-españolas">
-        <img src="/imagenes/cartas-españolas.png" class="cartas-españolas">
-        <img src="/imagenes/chanchito-esquina.png" class="chanchito-esquina-1">
-        <img src="/imagenes/chanchito-esquina.png" class="chanchito-esquina-2">
         <div class="modal">
-            <h1>¡Antes de Comenzar!</h1>
+            <img src="/imagenes/cartas-españolas.png" class="cartas-españolas">
+            <img src="/imagenes/chanchito-esquina.png" class="chanchito-esquina">
+            <h1 class="antes-de-comenzar">¡Antes de Comenzar!</h1>
             <form id="envio-de-jugadores">
-                <input type="number" placeholder="Cantidad de jugadores" id="cantidad-jugadores">
-                <p></p>
+                <div class="container-cant-jugadores">
+                    <input type="number" placeholder="Cantidad de jugadores" id="cantidad-jugadores">
+                </div>
+                <p class="mensaje-error"></p>
                 <div class="btn-modal">
-                    <a href="/chancho.html" class="botones-modal">Volver a Inicio</a>
+                    <button type="button" class="botones-modal" id="btn-volver-inicio">Volver al inicio</button>
                     <button type="submit" class="botones-modal" id="btn-jugar">Iniciar Partida</button>
                 </div>
             </form>

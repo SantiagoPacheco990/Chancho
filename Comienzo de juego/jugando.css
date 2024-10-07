@@ -1,14 +1,25 @@
-body{
-    background-image: url(../imagenes/paisaje\ verde.avif);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+body{   
+    background-color: black; 
     font-family: Arial, Helvetica, sans-serif;
+    padding: 15px;
 }
 
-h1{
+/*
+.container-titulo{
+}
+*/
+.titulo{
     display: flex;
     justify-content: center;
+    color: rgb(0, 0, 0);
+    visibility: hidden; /*Se coloca en invisible, se muestra con js cuando se coloca los jugadores*/
+}
+
+
+.marco-titulo{
+    /*visibility: hidden;*/
+    width: 300px;
+    height: auto;
 }
 
 /*Ventana que aparece antes de jugar*/
@@ -28,12 +39,13 @@ h1{
 }
 
 .container-modal.mostrar{
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
-    backdrop-filter: blur(10px);    /*Para que se vea un poco borroso*/
+    background-color: rgba(0, 0, 0, 0.877); /* Fondo semitransparente */
+    /*backdrop-filter: blur(4px);*/    /*Para que se vea un poco borroso*/
     z-index: 1;
 }
 
 .container-modal .modal{
+    position: relative;
     background-image: 
     linear-gradient(
       118deg in oklab,
@@ -42,12 +54,13 @@ h1{
     border-radius: 10px;
     border: none;
     padding: 10px;
-    width: 40%;
     height: 45%;
+    min-height: 240px; /*Ponemos el limite de lo que se puede achicar el alto del modal*/
+    width: 80%; /* o un valor fijo como 600px */
+    max-width: 600px; /* Para asegurarte de que no sea más ancho que 600px */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     transition: ease 0.3s;
 }
 
@@ -55,11 +68,14 @@ h1{
     box-shadow: 1px 1px 7px rgb(226, 44, 196);
 }
 
-.btn-modal a,
-.btn-modal button{
+/*Botones del modal*/
+.btn-modal{
     color: black;
     color: aliceblue;
     font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /*Son los botones de la ventana modal*/
@@ -67,9 +83,14 @@ h1{
     text-decoration: none;
     color: rgb(245, 240, 240);
     padding: 8px;
-    margin: 15px;
+    margin: 10px;
+    margin-bottom: 40px;
     border-radius: 10px;
+    cursor: pointer;
     transition: ease 0.5s;
+    width: 150px;
+    min-width: 70px;
+    position: relative;
 }
 
 .botones-modal:first-child{
@@ -78,8 +99,6 @@ h1{
 }
 
 .botones-modal:nth-child(2){
-    width: 120px;
-    height: 40px;
     background-color: rgb(235, 72, 221);
     border: 3px solid rgb(138, 17, 118);
 }
@@ -88,62 +107,67 @@ h1{
     background-color: rgb(184, 60, 173);
 }
 
+.modal .antes-de-comenzar{
+    margin-top: 40px;
+}
+
 form input{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
+    width: 50%;
     background: rgb(207, 207, 207);
     margin: 40px;
-    margin-bottom: 20px;
-    padding: 10px;
+    margin-bottom: 10px;
+    padding: 12px;
     border: none;
     border-radius: 10px;
     outline: 1px solid black;
+    text-align: center;
+}
+
+/*Para no mostrar las flechitas a la hora de poner la cantidad de jugadores*/
+form input::-webkit-outer-spin-button,
+form input::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Chrome y Safari */
+    margin: 0; /* Quitar margen */
+}
+
+.container-cant-jugadores{
+    display: flex;
+    justify-content: center;
 }
 
 /*Mensaje de error cuando se ingresa mal la cantidad de jugadores*/
-p{
+.mensaje-error{
     color: white;
     display: flex;
     justify-content: center;
+    text-align: center;
+    min-height: 25px;
     font-size: 14px;
+    margin: 4px;
 }
 
 /*Para las cartas españolas de las esquinas*/
 .cartas-españolas{
     position: absolute;
-    width:150px; 
+    width:140px; 
     height: auto;
-}
-
-.cartas-españolas:first-child{
-    transform: translate(-190%,-90%);
-}
-
-.cartas-españolas:nth-child(2){
-    transform: translate(180%,80%);
+    left: -45px;
+    top: -50px;
 }
 
 /*Imagen chanchito es de la esquina*/
-.chanchito-esquina-1{
+.chanchito-esquina{
     position: absolute;
     width: 120px;
     height: auto;
-    transform: translate(220%,-115%);
-}
-
-
-.chanchito-esquina-2{
-    position: absolute;
-    width: 120px;
-    height: auto;
-    transform: translate(-230%,110%);
+    right: -30px;
+    bottom: -20px;
 }
 
 .modal h1{
     color: aliceblue;
     margin-bottom: -1px;
+    text-align: center;
 }
 
 
@@ -198,19 +222,28 @@ p{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgb(24, 56, 146);
+    flex-direction: column;  
+    background: -webkit-linear-gradient(to right, #b91d73, #f953c6);  
+    background: linear-gradient(to right, #b91d73, #f953c6); 
     width: 155px;
     min-height: 60vh;
     position: relative;
-    margin: 0;
     padding: 15px;
+    outline: 3px solid rgb(219, 20, 143);
+    border-radius: 10px;
     box-sizing: border-box;
+    transition: ease 0.5s;
+    position: relative;
 }
 
+.marcador:hover{
+    box-shadow: 2px 2px 14px rgb(219, 20, 143);
+}
 
 .marcador:first-child{
     display: none;
 }
+
 
 .ingresar_nombre_jugador {
     display: flex;
@@ -221,12 +254,15 @@ p{
     top: 0;
     left: 0;
     border: none;
-    outline: 1px solid rgb(0, 0, 0);
+    background: rgb(207, 207, 207);
+    outline: 3px solid rgb(219, 20, 143);
+    border-radius: 4px;
     height: 30px;
     width: 98%;
     font-size: 20px;
 }
 
+/*Container de los botones de inc-dec*/
 .container-botones {
     display: flex;
     flex-direction: column;
@@ -246,6 +282,7 @@ p{
     padding: 20px;
 }
 
+/*Casillero donde esta la palabra CHANCHO*/
 .casillero-palabra{
     width: 30px;
     height: 30px;
@@ -255,24 +292,33 @@ p{
     pointer-events: none;
     display: flex;
     text-align: center;
+    outline: 3px solid rgb(219, 20, 143);
     border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    transition: ease 0.2s;
 }
 
 .boton-volver{
+    display: none;
     position: absolute;
     border: none;
     width: 100px;
     height: 30px;
     border-radius: 5px;
+    color: white;
+    outline: 2px solid rgb(255, 255, 255);
+    background: rgb(219, 20, 143);
     cursor: pointer;
-    transform: translateX(25%);
+    transform: translateY(660%);
 }
 
-@media (max-width:600px){
+@media (width<=800px){
     .marcador {
-        background: rgb(24, 56, 146);
-        width: 130px;
+        background: -webkit-linear-gradient(to right, #b91d73, #f953c6);  
+        background: linear-gradient(to right, #b91d73, #f953c6); 
         min-height: 42vh;
+        min-width: 100px;
         position: relative;
         margin: 0;
         padding: 15px;
@@ -284,8 +330,8 @@ p{
     }
 
     .container-modal .modal{
-        width: 80%;
-        height: 40%;
+        width: 70%;
+        height: 25%;
     }
 
     /*Para las cartas españolas de las esquinas*/
@@ -295,27 +341,63 @@ p{
         height: auto;
     }
 
-    .cartas-españolas:first-child{
-        transform: translate(-140%,-130%);
+    .chanchito-esquina{
+        width: 90px;
+        height: auto;
+    }
+}
+
+@media (width<=390px){
+    .container-modal .modal{
+        height: 32%;
+        padding: 25px;
     }
 
-    .cartas-españolas:nth-child(2){
-        transform: translate(140%,130%);
+    .modal .antes-de-comenzar{
+        font-size: 22px;
+        margin-top: 15px;
+        text-align: center;
+    }
+        
+    form input{
+        margin-bottom: 15px;
+        width: 100%;
     }
 
+    .cartas-españolas{ 
+        width:100px; 
+        height: auto;
+    }
+        
     /*Imagen chanchito es de la esquina*/
-    .chanchito-esquina-1{
-        position: absolute;
+    .chanchito-esquina{
         width: 80px;
-        height: auto;
-        transform: translate(210%,-200%);
+        height: auto; 
+    }
+}
+
+@media(400px<=width){
+        
+    .container-modal .modal{
+        height: 40%;
+        width: 80%;
+        padding: 12px;
     }
 
-    .chanchito-esquina-2{
-        position: absolute;
-        width: 80px;
-        height: auto;
-        transform: translate(-210%,200%);
+    .modal .antes-de-comenzar{
+        font-size: 28px;
+        margin-top: 15px;
+        text-align: center;
     }
-
+    
+    .cartas-españolas{ 
+        width:110px; 
+        height:auto;
+    }
+        
+    /*Imagen chanchito es de la esquina*/
+    .chanchito-esquina{
+        width: 80px;
+        height: auto; 
+    }
 }
