@@ -1,8 +1,8 @@
 // Definimos la palabra CHANCHO la cual se mostrara por pantalla letra por letra
 const palabraCompleta = 'CHANCHO';
 const marcadorIndices = []; // Arreglo para guardar los índices de cada marcador
-const titulo = document.querySelector(".titulo");
-const marco_titulo = document.getElementsByClassName("marco-titulo");
+const titulo_imagen = document.querySelector(".container-tit-img");
+const contenedor_marcadores = document.querySelector('.container');
 
 //Metodo para mostar la ventana modal cuando cargue la pagina
 window.onload = () => {
@@ -17,6 +17,9 @@ document.getElementById('envio-de-jugadores').addEventListener('submit',(e)=>{
 
   const mensajeDeError = document.querySelector('p');
 
+  // Verifica el ancho de la ventana
+  const anchoVentana = window.innerWidth;
+
   if (cantidad_jugadores >= 2 && cantidad_jugadores <= 12) {
     crearMarcadores(cantidad_jugadores);
     document.querySelector('.container-modal').style.display = 'none';
@@ -24,8 +27,12 @@ document.getElementById('envio-de-jugadores').addEventListener('submit',(e)=>{
     document.body.style.backgroundSize = 'cover'; // O 'contain' según lo que necesites
     document.body.style.backgroundPosition = 'center'; // Centra la imagen
     document.body.style.backgroundRepeat = 'no-repeat'; // Evita que la imagen se repita
-    //marco_titulo.visibility = "visible"
-    titulo.style.visibility = "visible" //Muestra el titulo luego de que se coloque correctamente los jugadores
+    titulo_imagen.style.visibility = "visible"
+    
+    if (cantidad_jugadores <= 5  && anchoVentana>=970) {
+      contenedor_marcadores.style.display = 'grid';
+      contenedor_marcadores.style.gridTemplateColumns = 'repeat(auto-fit, minmax(100px, 1fr))'; // Tamaño mínimo de columna ajustado
+    } 
   } else if(cantidad_jugadores == '') {
     mensajeDeError.textContent = "No puede empezar la partida sin ingresar la cantidad de jugadores"
   } else{
@@ -80,6 +87,7 @@ function crearMarcadores(numMarcadores) {
     ingresar_nom_input.className = 'ingresar_nombre_jugador';
     ingresar_nom_input.type = 'text';
     ingresar_nom_input.setAttribute('maxlength', '10');
+    ingresar_nom_input.placeholder = "Ingrese jugador"
 
     // Creamos el div boton_y_palabra
     const boton_palabra_div = document.createElement('div');
