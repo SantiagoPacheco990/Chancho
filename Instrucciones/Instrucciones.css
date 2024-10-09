@@ -1,0 +1,259 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(/imagenes/Fondo-azul.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+
+html{
+    scroll-behavior: smooth; /*Permite hacer el scroll mas suave cuando aprete el btn de volver al principio*/
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 15px;  
+}
+
+/*Parte del titulo*/
+.container-tit-img{
+    display: flex;
+    justify-content: center;
+}
+
+.container-titulo{
+    display: grid;
+    width: 300px;
+    height: auto;
+    position: relative;
+}
+
+.titulo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 26px;
+    transform: translate(-53%,-150%);
+    color: rgb(0, 0, 0);
+}
+
+
+.marco-titulo{
+    width: 100%;
+    height: 100%;
+}
+
+/*-------------------------------------------------------------*/
+/*Es cada una de las instrucciones*/
+.instrucciones{
+    background: linear-gradient(135deg, rgba(255,255,255, 0.1), rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    margin: 20px;
+    width: 100%;
+    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: aliceblue;
+    /*Parte de la animacion para scroll*/
+    view-timeline-name: --instruccion;
+    view-timeline-axis: block;
+    animation-timeline: --instruccion;
+    animation-name: show;
+    animation-range: entry 25% cover 40%;
+    animation-fill-mode: both;  /*Permite que la animacion se haga hacia adelante o al revez*/
+}
+
+.instrucciones.par{
+    flex-direction: row-reverse;
+}
+
+.container-texto{
+    flex: 1; /* Permite que el texto ocupe el espacio restante */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 100px;
+}
+
+/*Imagenes de las instrucciones*/
+.container-img{
+    width: 350px; 
+    height: 350px; 
+    margin: 50px;
+    border-radius: 50%;
+    border: 3px solid white;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.img-instruccion{
+    width: 450px;
+    height: 360px;
+    transform: scale(1);
+    transition: ease 0.3s;
+}
+
+.img-instruccion:hover{
+    transform: scale(1.04);
+}
+
+.titulo-instruccion{
+    font-size: 40px;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/*Son los botones de volver al principio y el de regresar a la pagina principal*/
+.volver-al-inicio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+
+/**/
+.fondo-btn{
+    background-color: whitesmoke;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 7px 0px;
+    transition: ease 0.4s;
+}
+
+.fondo-btn:hover{
+    background-color: rgb(211, 208, 208);
+}
+
+.img-flecha{
+    width: 80%;
+    height: 80%;
+}
+
+.img-casa{
+    width: 80%;
+    height: 80%;
+}
+
+
+/*Animacion aplicada para el scroll*/
+@keyframes show {
+    from {
+        opacity: 0;
+        scale: 25%;
+    }
+
+    to {
+        opacity: 1;
+        scale: 100%;
+    }
+}
+
+@media (421px <= width <= 800px){
+    .titulo{
+        font-size: 23px;
+    }
+
+    .container-titulo{
+        width: 270px;
+    }
+
+    .container-img{
+        min-width: 450px;
+        min-height: 300px;
+        width: 520px; 
+        height: 520px; 
+        margin: 10px auto;
+        border-radius: 50%;
+    }
+    
+    .img-instruccion{
+        min-width: 550px;
+        min-height: 525px;
+        transform: scale(1);
+    }
+
+    .container-img{
+        margin: 30px;
+    }
+
+}
+
+@media (width <= 420px){
+
+    .container-texto{
+        margin: 60px;
+    }
+
+    .titulo-instruccion{
+        font-size: 25px;
+    }
+
+    .container-img{
+        min-width: 350px; 
+        height: 350px; 
+        margin: 0px auto;
+        border-radius: 100%;
+    }
+    
+    .img-instruccion{
+        width: 350px;
+        height: 350px;
+        transform: scale(1);
+    }
+
+    .container-img{
+        margin: 8px;
+    }
+
+    .img-instruccion:hover {
+        transform: scale(1); /* Desactiva el efecto de zoom */
+    }
+
+    .fondo-btn:hover {
+        background-color: whitesmoke; /* Mantiene el color original */
+    }
+    
+}
+
+@media (width <= 320px){
+
+
+    .container-img{
+        min-width: 300px; 
+        height: 300px; 
+        margin: 0px auto;
+        border-radius: 100%;
+    }
+    
+    .container-img{
+        margin: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img-instruccion{
+        width: 310px;
+        height: 310px;
+    }
+}

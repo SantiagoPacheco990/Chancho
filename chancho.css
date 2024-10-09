@@ -53,8 +53,29 @@ body {
 }
 
 /*Botones*/
-.boton{
+
+.boton::after{
+    content: "";
+    width: 100%;
     position: absolute;
+    z-index: 1;
+    top: 0;
+    left: -100%;
+    border-bottom: 80px solid rgb(21, 111, 230);
+    border-right: 80px solid transparent;
+    transition: 0.4s ease-in-out all;
+}
+.boton span{
+    position: relative;
+    z-index: 3;
+}
+
+.boton:hover::after{
+    left: 0;
+}
+
+.boton{
+    position: relative;
     width: 100%;
     height: 20%;
     cursor: pointer;
@@ -75,21 +96,6 @@ body {
     margin: 0;
 }
 
-.icono-cartas{
-    width: 25px;
-    height: 25px;
-    margin-left: 7px;
-    display: none;
-}
-
-.boton:hover{
-    color: #f0f0f0;
-    background: rgb(21, 111, 230);
-    .icono-cartas{
-        display: flex;
-    }
-}
-
 .redes img{
     margin-top: 15px;
     transition: ease 0.4s;
@@ -98,7 +104,6 @@ body {
 .redes img:first-child:hover{
     transform: translateY(-6px);
 }
-
 
 p{
     position: absolute;
