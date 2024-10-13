@@ -334,6 +334,51 @@ form input::-webkit-inner-spin-button {
     transform: translateY(660%);
 }
 
+/*----------Botones para elegir lo que quiera hacer el usuario---------------*/
+
+.volver-al-inicio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    visibility: hidden;
+}
+
+/*El fondo que tendran los botones*/
+.fondo-btn{
+    background-color: whitesmoke;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 7px 0px;
+    cursor: pointer;
+    transition: ease 0.4s;
+}
+
+.fondo-btn:first-child:hover{
+    background-color: rgb(189, 19, 19);
+}
+
+.fondo-btn:nth-child(2):hover{
+    background-color: rgb(64, 19, 189);
+}
+
+.img-reinicio{
+    width: 80%;
+    height: 80%;
+}
+
+.img-casa{
+    width: 80%;
+    height: 80%;
+}
+
 @media (width<=800px){
     .marcador {
         background: -webkit-linear-gradient(to right, #b91d73, #f953c6);  
@@ -421,4 +466,5 @@ form input::-webkit-inner-spin-button {
         width: 80px;
         height: auto; 
     }
+
 }
