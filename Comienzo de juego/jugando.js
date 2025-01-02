@@ -47,7 +47,7 @@ document.getElementById('envio-de-jugadores').addEventListener('submit', (e) => 
 })
 
 document.getElementById('btn-volver-inicio').addEventListener("click", () => {
-  window.location.href = '/chancho.html';
+  window.location.href = '/index.html';
 })
 
 //Para guardar la partida cuando se refresque la pagina y no perder la info
