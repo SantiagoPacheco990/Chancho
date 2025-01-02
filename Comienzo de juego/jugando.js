@@ -16,7 +16,7 @@ document.getElementById('envio-de-jugadores').addEventListener('submit', (e) => 
   e.preventDefault();
   const cantidad_jugadores = document.getElementById('cantidad-jugadores').value;
 
-  const mensajeDeError = document.querySelector('p');
+  const mensajeDeError = document.querySelector('.mensaje-error');
 
   // Verifica el ancho de la ventana
   const anchoVentana = window.innerWidth;
