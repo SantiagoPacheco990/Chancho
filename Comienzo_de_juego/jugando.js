@@ -24,7 +24,7 @@ document.getElementById('envio-de-jugadores').addEventListener('submit', (e) => 
   if (cantidad_jugadores >= 2 && cantidad_jugadores <= 12) {
     crearMarcadores(cantidad_jugadores);
     document.querySelector('.container-modal').style.display = 'none';
-    document.body.style.backgroundImage = 'url("/imagenes/fondo-juego.png")';
+    document.body.style.backgroundImage = 'url("../imagenes/fondo-juego.png")';
     document.body.style.backgroundSize = 'cover'; // O 'contain' según lo que necesites
     document.body.style.backgroundPosition = 'center'; // Centra la imagen
     document.body.style.backgroundRepeat = 'no-repeat'; // Evita que la imagen se repita
@@ -47,7 +47,7 @@ document.getElementById('envio-de-jugadores').addEventListener('submit', (e) => 
 })
 
 document.getElementById('btn-volver-inicio').addEventListener("click", () => {
-  window.location.href = '/index.html';
+  window.location.href = '../index.html';
 })
 
 //Para guardar la partida cuando se refresque la pagina y no perder la info
