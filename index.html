@@ -11,7 +11,7 @@
     <div class="container"> 
         <img src="imagenes/chanchitos-img.png" class="img-chanchos">
         <div class="borde-boton">
-            <a href="Comienzo_de_juego/jugando.html" class="boton">
+            <a class="boton" id="abrirModal" onclick="abrirModal()">
                 <span>Jugar</span>
             </a>
         </div>
@@ -25,5 +25,23 @@
         </div>
     </div>
     <p>&#169; Copyrigth - Santiago Pacheco</p>
+    <dialog id="miDialog">
+        <div class="container-contenido-modal">
+            <h2>¡Antes de Comenzar!</h2>
+            <h4 class="texto-jugadores">Debe ingresar la cantidad de jugadores</h4>
+            <form id="envio-de-jugadores">
+                <div class="container-cant-jugadores">
+                    <input type="number" placeholder="Cantidad de jugadores" id="cantidad-jugadores">
+                </div>
+                <h4 class="mensaje-error"></h4>
+                <div class="btn-modal">
+                    <button type="submit" class="botones-modal" id="btn-jugar">Iniciar Partida</button>
+                    <button type="button" class="botones-modal" id="cerrarModal">Cerrar</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+    <script src="Comienzo_de_juego/chancho.js">
+    </script>
 </body>
 </html>

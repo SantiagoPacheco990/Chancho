@@ -115,6 +115,141 @@ p{
     user-select: none;
 }
 
+/*************Modal*************/
+
+dialog{
+    inset: 0; /*Esto con el margin me permite centrar la modal*/
+    margin: auto;
+    border: none;
+    border-radius: 10px;
+    width: 450px;
+    height: 320px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-in-out;
+    background-image: 
+    linear-gradient(
+      118deg in oklab,
+      oklch(60% .5 353) 11% 11%, oklch(80% .5 325) 96% 96%
+    );
+}
+
+dialog::backdrop{   /*Permite cambiar el fonde de atras del Modal*/
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px); /*Fondo borroso*/
+}
+
+dialog[open]{
+    position: fixed;
+    
+}
+
+dialog:hover{
+    box-shadow: 1px 1px 7px rgb(226, 44, 196);
+}
+
+.container-contenido-modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h2{
+    text-align: center;
+    color: white;
+}
+
+h4{
+    text-align: center;
+    color: white;
+}
+
+/*Botones del modal*/
+.btn-modal{
+    color: black;
+    color: aliceblue;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Son los botones de la ventana modal*/
+.botones-modal{
+    text-decoration: none;
+    color: rgb(245, 240, 240);
+    padding: 8px;
+    margin: 8px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: ease 0.5s;
+    width: 150px;
+    min-width: 70px;
+    position: relative;
+}
+
+.botones-modal:first-child{
+    background-color: rgb(17, 19, 141);
+    border: 3px solid rgb(9, 114, 212);
+}
+
+.botones-modal:nth-child(2){
+    background-color: rgb(235, 72, 221);
+    border: 3px solid rgb(138, 17, 118);
+}
+
+.botones-modal:nth-child(2):hover{
+    background-color: rgb(184, 60, 173);
+}
+
+form input{
+    width: 50%;
+    background: rgb(207, 207, 207);
+    margin: 20px;
+    margin-bottom: 10px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    outline: 1px solid black;
+    text-align: center;
+}
+
+.container-cant-jugadores{
+    display: flex;
+    justify-content: center;
+}
+
+/*Para no mostrar las flechitas a la hora de poner la cantidad de jugadores*/
+form input::-webkit-outer-spin-button,
+form input::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Chrome y Safari */
+    margin: 0; /* Quitar margen */
+}
+
+/*Mensaje de error cuando se ingresa mal la cantidad de jugadores en la Modal*/
+.mensaje-error{
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    min-height: 25px;
+    font-size: 14px;
+    margin: 4px;
+}
+
+@keyframes fadeIn{
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /*Media Query para ajustarlo celular*/
 @media (max-width:600px){
     .redes img{

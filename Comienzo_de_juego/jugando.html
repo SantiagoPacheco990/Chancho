@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -16,9 +16,10 @@
             <h1 class="titulo">CHANCHO</h1>
         </div>
     </div>
-    <div class="container">
+    <div class="container"></div>
+    <template id="marcador-template">
         <div class="marcador">
-            <input type="text" class="ingresar_nombre_jugador">
+            <input type="text" class="ingresar_nombre_jugador" placeholder="Ingrese jugador">
             <div class="boton_y_palabra">
                 <input type="text" class="casillero-palabra" readonly>
                 <input type="text" class="casillero-palabra" readonly>
@@ -28,36 +29,40 @@
                 <input type="text" class="casillero-palabra" readonly>
                 <input type="text" class="casillero-palabra" readonly>
                 <div class="container-botones">
-                    <button id="boton-incremento" class="botones-inc-dec">+</button>
-                    <button id="boton-decremento" class="botones-inc-dec">-</button>
+                    <button class="boton-incremento botones-inc-dec">+</button>
+                    <button class="boton-decremento botones-inc-dec">-</button>
                 </div>
             </div>
             <button class="boton-volver">Volver</button>
         </div>
-    </div>
+    </template>
     <div class="volver-al-inicio">
-        <a id="reiniciar-partida" class="fondo-btn"><img src="../imagenes/mdi-light--refresh.png" class="img-reinicio"></a>
-        <a href="../index.html" class="fondo-btn"><img src="../imagenes/icono-casa.png" class="img-casa"></a>
+        <a class="fondo-btn" id="abrirModalReiniciar"><img src="../imagenes/mdi-light--refresh.png" class="img-reinicio"></a>
+        <a class="fondo-btn" id="abrirModalVolverInicio"><img src="../imagenes/icono-casa.png" class="img-casa"></a>
     </div>
-    <div class="container-modal">
-        <div class="modal">
-            <img src="../imagenes/cartas-españolas.png" class="cartas-españolas">
-            <img src="../imagenes/chanchito-esquina.png" class="chanchito-esquina">
-            <h1 class="antes-de-comenzar">¡Antes de Comenzar!</h1>
-            <p class="texto-jugadores">Debe ingresar la cantidad de jugadores</p>
-            <form id="envio-de-jugadores">
-                <div class="container-cant-jugadores">
-                    <input type="number" placeholder="Cantidad de jugadores" id="cantidad-jugadores">
-                </div>
-                <p class="mensaje-error"></p>
-                <div class="btn-modal">
-                    <button type="button" class="botones-modal" id="btn-volver-inicio">Volver al inicio</button>
-                    <button type="submit" class="botones-modal" id="btn-jugar">Iniciar Partida</button>
-                </div>
-            </form>
+
+    <dialog id="modal_reiniciar">
+        <div class="container-contenido-modal reiniciar">
+            <h2>¿Quieres reinicar la partida?</h2>
+            <h4 class="texto-jugadores">¡Cuidado!, Si reinicias la pardida los puntos de los jugadores se perderán</h4>
+            <div class="btn-modal">
+                <button type="submit" class="botones-modal" id="reiniciar">Reiniciar partida</button>
+                <button type="button" class="botones-modal" id="cerrarModalReiniciar">Cerrar</button>
+            </div>
         </div>
-    </div>
-    <script src="jugando.js"></script>
+    </dialog>
+
+    <dialog id="volverAlInicio">
+        <div class="container-contenido-modal volver_inicio">
+            <h2>¿Quieres volver al inicio?</h2>
+            <h4 class="texto-jugadores">¡Cuidad!, Si regresas al inicio se perderá el estado de la partida actual</h4>
+            <div class="btn-modal">
+                <a href="../index.html" class="botones-modal" id="btn-jugar">Regresar al inicio</a>
+                <button type="button" class="botones-modal" id="cerrarModalVolverInicio">Cerrar</button>
+            </div>
+        </div>
+    </dialog>
+    <script type="module" src="jugando.js" defer></script>
 </body>
 
 </html>

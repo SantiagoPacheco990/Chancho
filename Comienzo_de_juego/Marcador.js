@@ -1,0 +1,107 @@
+export class Marcador {
+    cantidadLetras = 0;
+    maxLetras;
+    palabra = "CHANCHO";
+
+    constructor(container) {
+        this.maxLetras = this.palabra.length;
+
+        this.container = container;
+        this.template = document.querySelector("#marcador-template");
+
+        // Verifica si el template está correctamente seleccionado
+        if (!this.template) {
+            console.error("No se encontró el template.");
+            return;
+        }
+
+        // Clona el contenido del template
+        this.elemento = this.template.content.cloneNode(true).querySelector(".marcador");
+
+        // Verifica si se ha clonado correctamente
+        if (!this.elemento) {
+            console.error("No se pudo clonar el contenido del template.");
+            return;
+        }
+
+        // Añade el marcador al contenedor
+        this.container.appendChild(this.elemento);
+
+        // Verifica si los botones están correctamente seleccionados
+        this.boton_incremento = this.elemento.querySelector(".boton-incremento");
+        this.boton_decremento = this.elemento.querySelector(".boton-decremento");
+
+        if (!this.boton_incremento || !this.boton_decremento) {
+            console.error("No se encontraron los botones de incremento o decremento.");
+            return;
+        }
+
+        // Selecciona los casilleros para las letras
+        this.casilleros = this.elemento.querySelectorAll(".casillero-palabra");
+
+        // Verifica si se han seleccionado correctamente los casilleros
+        if (!this.casilleros || this.casilleros.length !== this.maxLetras) {
+            console.error("No se encontraron los casilleros o no son suficientes.");
+            return;
+        }
+
+        // Añade los eventos a los botones
+        this.boton_incremento.addEventListener("click", () => {
+            this.agregarLetra();
+        });
+
+        this.boton_decremento.addEventListener("click", () => {
+            this.quitarLetra();
+        });
+        
+    }
+
+    agregarLetra(){
+        if (this.cantidadLetras < this.maxLetras) {
+            const letraActual = this.palabra[this.cantidadLetras];
+            const casillero = this.casilleros[this.cantidadLetras];
+            casillero.value = letraActual;
+            casillero.classList.add("activo"); 
+            this.cantidadLetras++;
+
+            this.mostrarBtnVolver()
+            
+        }
+    }
+    
+    quitarLetra(){
+        if (this.cantidadLetras > 0) {
+            this.cantidadLetras--;
+            const casillero = this.casilleros[this.cantidadLetras];
+            casillero.value = "";
+            casillero.classList.remove("activo"); 
+
+            this.ocultarBtnVolver()
+        }
+    }
+    
+    reiniciarMarcador(){
+        if (this.cantidadLetras > 0) {
+            this.casilleros.forEach(casillero => {
+                casillero.value = "";
+                casillero.classList.remove("activo"); 
+            });
+            this.cantidadLetras = 0;
+        }
+    }
+
+    mostrarBtnVolver(){
+        if (this.cantidadLetras === this.maxLetras) {
+            const btnVolver = this.elemento.querySelector(".boton-volver");
+            btnVolver.classList.add("mostrar")
+        }
+    }
+
+    ocultarBtnVolver(){
+        const btnVolver = this.elemento.querySelector(".boton-volver");
+        btnVolver.classList.remove("mostrar")
+    }
+
+    
+
+}

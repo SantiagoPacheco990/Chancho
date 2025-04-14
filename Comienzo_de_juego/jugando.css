@@ -1,13 +1,16 @@
 body{   
-    background-color: black; 
     font-family: Arial, Helvetica, sans-serif;
     padding: 15px;
+    background-image: url(/imagenes/fondo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .container-tit-img{
     display: flex;
     justify-content: center;
-    visibility: hidden;
 }
 
 .container-titulo{
@@ -25,165 +28,12 @@ body{
     color: rgb(0, 0, 0);
 }
 
-
 .marco-titulo{
     /*visibility: hidden;*/
     width: 100%;
     height: 100%;
 }
 /*************************************************************/
-
-/************************Ventana Modal************************/
-
-/*Ventana que aparece antes de jugar*/
-.container-modal{
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    width: 100%;
-    height: 100%;
-}
-
-.container-modal.mostrar{
-    background-color: rgba(0, 0, 0, 0.877); /* Fondo semitransparente */
-    /*backdrop-filter: blur(4px);*/    /*Para que se vea un poco borroso*/
-    z-index: 1;
-}
-
-.container-modal .modal{
-    position: relative;
-    background-image: 
-    linear-gradient(
-      118deg in oklab,
-      oklch(60% .5 353) 11% 11%, oklch(80% .5 325) 96% 96%
-    );
-    border-radius: 10px;
-    border: none;
-    padding: 8px;
-    height: 45%;
-    min-height: 240px; /*Ponemos el limite de lo que se puede achicar el alto del modal*/
-    width: 100%; /* o un valor fijo como 600px */
-    max-width: 600px; /* Para asegurarte de que no sea más ancho que 600px */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: ease 0.3s;
-}
-
-.container-modal .modal:hover{
-    box-shadow: 1px 1px 7px rgb(226, 44, 196);
-}
-
-/*Botones del modal*/
-.btn-modal{
-    color: black;
-    color: aliceblue;
-    font-size: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/*Son los botones de la ventana modal*/
-.botones-modal{
-    text-decoration: none;
-    color: rgb(245, 240, 240);
-    padding: 8px;
-    margin: 8px;
-    margin-bottom: 30px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: ease 0.5s;
-    width: 150px;
-    min-width: 70px;
-    position: relative;
-}
-
-.botones-modal:first-child{
-    background-color: rgb(17, 19, 141);
-    border: 3px solid rgb(9, 114, 212);
-}
-
-.botones-modal:nth-child(2){
-    background-color: rgb(235, 72, 221);
-    border: 3px solid rgb(138, 17, 118);
-}
-
-.botones-modal:nth-child(2):hover{
-    background-color: rgb(184, 60, 173);
-}
-
-form input{
-    width: 50%;
-    background: rgb(207, 207, 207);
-    margin: 20px;
-    margin-bottom: 10px;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    outline: 1px solid black;
-    text-align: center;
-}
-
-/*Para no mostrar las flechitas a la hora de poner la cantidad de jugadores*/
-form input::-webkit-outer-spin-button,
-form input::-webkit-inner-spin-button {
-    -webkit-appearance: none; /* Chrome y Safari */
-    margin: 0; /* Quitar margen */
-}
-
-.texto-jugadores{
-    color: aliceblue;
-    text-align: center;
-}
-
-.container-cant-jugadores{
-    display: flex;
-    justify-content: center;
-}
-
-/*Mensaje de error cuando se ingresa mal la cantidad de jugadores*/
-.mensaje-error{
-    color: white;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    min-height: 25px;
-    font-size: 14px;
-    margin: 4px;
-}
-
-/*Para las cartas españolas de las esquinas*/
-.cartas-españolas{
-    position: absolute;
-    width:140px; 
-    height: auto;
-    left: -45px;
-    top: -50px;
-}
-
-/*Imagen chanchito es de la esquina*/
-.chanchito-esquina{
-    position: absolute;
-    width: 120px;
-    height: auto;
-    right: -30px;
-    bottom: -20px;
-}
-
-.modal h1{
-    color: aliceblue;
-    margin-bottom: -1px;
-    text-align: center;
-}
-
 
 /**************ELEMENTOS DEL JUEGO**************/
 
@@ -212,23 +62,23 @@ form input::-webkit-inner-spin-button {
     margin: auto;
 }
 
-#boton-incremento{
+.boton-incremento{
     background: rgb(9, 202, 9);
     color: white;
     font-size: 30px;
 }
 
-#boton-decremento{
+.boton-decremento{
     background-color: red;
     font-size: 40px;
     color: white;
 }
 
-#boton-incremento:hover{
+.boton-incremento:hover{
     background: rgb(10, 163, 10);
 }
 
-#boton-decremento:hover{
+.boton-decremento:hover{
     background-color: rgb(212, 23, 23);
 }
 
@@ -252,10 +102,6 @@ form input::-webkit-inner-spin-button {
 
 .marcador:hover{
     box-shadow: 2px 2px 14px rgb(219, 20, 143);
-}
-
-.marcador:first-child{
-    display: none;
 }
 
 
@@ -294,8 +140,8 @@ form input::-webkit-inner-spin-button {
     position: absolute;
     right: 1px; /* Alineación a la derecha */
     top: 40%; /* Centrado vertical */
-    transform: translateY(25%); /* Ajustar el centro vertical */
-    transform: translateX(50%);
+    transform: translate(50%, 25%);
+
 }
 
 .boton_y_palabra {
@@ -308,26 +154,42 @@ form input::-webkit-inner-spin-button {
 }
 
 /*Casillero donde esta la palabra CHANCHO*/
-.casillero-palabra{
+.casillero-palabra {
     width: 30px;
     height: 30px;
     padding: 2px;
     margin-top: 14px;
     border: none;
     pointer-events: none;
-    display: flex;
     text-align: center;
     outline: 3px solid rgb(219, 20, 143);
     border-radius: 50px;
     font-size: 15px;
     font-weight: 700;
-    transition: ease 0.2s;
+    color: transparent;
+    transition: all 0.3s ease;
 }
 
+.casillero-palabra.activo {
+    background-color: #b91d73;
+    color: white;
+    box-shadow: 0 0 5px rgb(219, 20, 143);
+}
+
+/*Boton de volver*/
 .boton-volver{
     display: none;
-    position: absolute;
+}
+
+.mostrar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     border: none;
+    position: absolute;
+    font-weight: 600;
+    font-size: 13px;
     width: 100px;
     height: 30px;
     border-radius: 5px;
@@ -348,7 +210,6 @@ form input::-webkit-inner-spin-button {
     position: fixed;
     right: 10px;
     bottom: 10px;
-    visibility: hidden;
 }
 
 /*El fondo que tendran los botones*/
@@ -381,6 +242,48 @@ form input::-webkit-inner-spin-button {
 .img-casa{
     width: 80%;
     height: 80%;
+}
+
+/*Modales de los botones de Reiniciar y Volver*/
+dialog{
+    inset: 0; /*Esto con el margin me permite centrar la modal*/
+    margin: auto;
+    border: none;
+    border-radius: 10px;
+    width: 450px;
+    height: 320px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+dialog::backdrop{   /*Permite cambiar el fonde de atras del Modal*/
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px); /*Fondo borroso*/
+}
+
+dialog[open]{
+    position: fixed;
+    
+}
+
+@keyframes fadeIn{
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.container-contenido-modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 @media (width<=800px){
