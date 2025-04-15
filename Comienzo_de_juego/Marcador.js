@@ -53,6 +53,8 @@ export class Marcador {
         this.boton_decremento.addEventListener("click", () => {
             this.quitarLetra();
         });
+
+        this.volverJugador();
         
     }
 
@@ -62,10 +64,11 @@ export class Marcador {
             const casillero = this.casilleros[this.cantidadLetras];
             casillero.value = letraActual;
             casillero.classList.add("activo"); 
-            this.cantidadLetras++;
-
-            this.mostrarBtnVolver()
-            
+            this.cantidadLetras++; 
+            if (this.cantidadLetras === this.maxLetras) {
+                this.mostrarBtnVolver();
+                this.marcadorJugadorEliminado();
+            }  
         }
     }
     
@@ -75,8 +78,6 @@ export class Marcador {
             const casillero = this.casilleros[this.cantidadLetras];
             casillero.value = "";
             casillero.classList.remove("activo"); 
-
-            this.ocultarBtnVolver()
         }
     }
     
@@ -91,10 +92,8 @@ export class Marcador {
     }
 
     mostrarBtnVolver(){
-        if (this.cantidadLetras === this.maxLetras) {
-            const btnVolver = this.elemento.querySelector(".boton-volver");
-            btnVolver.classList.add("mostrar")
-        }
+        const btnVolver = this.elemento.querySelector(".boton-volver");
+        btnVolver.classList.add("mostrar")  
     }
 
     ocultarBtnVolver(){
@@ -102,6 +101,30 @@ export class Marcador {
         btnVolver.classList.remove("mostrar")
     }
 
-    
+    marcadorJugadorEliminado(){
+        this.elemento.classList.add("eliminado");
+        //Inhabilitamos los botones de inc y dec
+        this.boton_incremento.disabled = true;
+        this.boton_decremento.disabled = true;
+    }
+
+    quitarMarcadorEliminado() {
+        this.elemento.classList.remove("eliminado");
+        //Habilitamos los botones de inc y dec
+        this.boton_incremento.disabled = false;
+        this.boton_decremento.disabled = false;
+    }
+
+    volverJugador(){
+        const btnVolver = this.elemento.querySelector(".boton-volver");
+        if (!btnVolver.dataset.listenerAdded) { //Evita listeners duplicados, solo se dispara una vez (Mas optimo) (No es necesario agregarlo)
+            btnVolver.addEventListener("click", () =>{
+                this.ocultarBtnVolver();
+                this.quitarLetra();
+                this.quitarMarcadorEliminado();
+            });
+            btnVolver.dataset.listenerAdded = "true";
+        }
+    }
 
 }

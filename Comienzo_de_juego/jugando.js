@@ -1,6 +1,6 @@
 import {Marcador} from "./Marcador.js";
 
-//Modales de Reiniciar y Volver
+/****************Modales de Reiniciar y Volver****************/
 const modalReiniciar = document.getElementById("modal_reiniciar");
 const abrirModalReiniciar = document.getElementById("abrirModalReiniciar");
 const cerrarModalReiniciar = document.getElementById("cerrarModalReiniciar")
@@ -26,10 +26,11 @@ cerrarModalVolverInicio.addEventListener("click", () =>{
   modalVolverInicio.close();
 })
 
+/****************************************************************/
+
 //Crear Marcadores
 const crearMarcadores = (jugadores) =>{
   const container = document.querySelector(".container"); /*Hace referencia al container de los marcadores*/ 
-  container.innerHTML = ""
   for (let i = 0; i < jugadores; i++) {
     console.log(`Creando marcador ${i + 1}`)
     new Marcador(container);
@@ -37,4 +38,4 @@ const crearMarcadores = (jugadores) =>{
   }
 }
 
-crearMarcadores(4);
+crearMarcadores(5);
