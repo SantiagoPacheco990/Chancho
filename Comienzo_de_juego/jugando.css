@@ -66,7 +66,7 @@ body{
 }
 
 .marcador:hover{
-    box-shadow: 2px 2px 14px rgb(219, 20, 143);
+    box-shadow: 4px 4px 18px rgb(219, 20, 143);
 }
 
 /*Estilo del marcador cuando el jugador esté eliminado*/
@@ -290,6 +290,14 @@ dialog[open]{
     
 }
 
+#modal_reiniciar{
+    background: green;
+}
+
+#volverAlInicio{
+    background: orange;
+}
+
 @keyframes fadeIn{
     from {
         opacity: 0;
@@ -309,92 +317,70 @@ dialog[open]{
     flex-direction: column;
 }
 
-@media (width<=800px){
+
+.botones-modal,
+#btn_volver{
+    padding: 15px 35px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+#cerrarModalReiniciar,
+#cerrarModalVolverInicio{
+    background: red;
+    color: white;
+    border: none;
+    transition: 0.4s ease;
+}
+
+#cerrarModalReiniciar:hover, 
+#cerrarModalVolverInicio:hover{
+    background: rgb(184, 3, 3);
+}
+
+#btn_volver,#reiniciar{
+    text-decoration: none;
+    background: blue;
+    border: none;
+    color: white;
+    transition: 0.5s ease;
+}
+
+#btn_volver:hover,
+#reiniciar:hover{
+    background: rgb(2, 2, 158);
+}
+
+@media(width<=432px){
+        
+
+    .container {
+        gap: 55px 50px; 
+        padding: 0 10px;
+    }
+
     .marcador {
-        background: -webkit-linear-gradient(to right, #b91d73, #f953c6);  
-        background: linear-gradient(to right, #b91d73, #f953c6); 
-        min-height: 42vh;
-        min-width: 100px;
-        position: relative;
-        margin: 0;
-        padding: 15px;
+        width: calc(50% - 50px); /* Dos por fila con espacio entre ellos */
+        min-height: 20vh; /* Opcional, si querés que se vea más compacto en celular */
     }
 
-    .container{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+    .casillero-palabra {
+        width: 35px;
+        height: 35px;
     }
 
-    .container-modal .modal{
-        width: 70%;
-        height: 25%;
+    .botones-inc-dec{
+        width: 50px;
+        height: 50px;
     }
 
-    /*Para las cartas españolas de las esquinas*/
-    .cartas-españolas{
-        position: absolute;
-        width:110px; 
-        height: auto;
+    .mostrar{
+        transform: translateY(770%);
     }
 
-    .chanchito-esquina{
-        width: 90px;
-        height: auto;
-    }
-}
-
-@media (width<=390px){
-    .container-modal .modal{
-        height: 32%;
-        padding: 25px;
-    }
-
-    .modal .antes-de-comenzar{
-        font-size: 22px;
-        margin-top: 15px;
-        text-align: center;
-    }
-        
-    form input{
-        margin-bottom: 15px;
-        width: 100%;
-    }
-
-    .cartas-españolas{ 
-        width:100px; 
-        height: auto;
-    }
-        
-    /*Imagen chanchito es de la esquina*/
-    .chanchito-esquina{
-        width: 80px;
-        height: auto; 
-    }
-}
-
-@media(400px<=width){
-        
-    .container-modal .modal{
-        height: 40%;
-        width: 80%;
-        padding: 12px;
-    }
-
-    .modal .antes-de-comenzar{
-        font-size: 28px;
-        margin-top: 15px;
-        text-align: center;
-    }
-    
-    .cartas-españolas{ 
-        width:110px; 
-        height:auto;
-    }
-        
-    /*Imagen chanchito es de la esquina*/
-    .chanchito-esquina{
-        width: 80px;
-        height: auto; 
+    dialog{
+        width: 350px;
+        height: 250px;
     }
 
 }

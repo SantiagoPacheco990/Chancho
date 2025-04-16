@@ -21,8 +21,9 @@ document.getElementById('envio-de-jugadores').addEventListener('submit', (e) => 
         window.location.href = `Comienzo_de_juego/jugando.html?cantidad=${cantidad_jugadores}`;
     } else if (cantidad_jugadores === '') {
         mensajeError.textContent = "No puede empezar la partida sin ingresar la cantidad de jugadores"
-      } else {
+    } else {
         mensajeError.textContent = "Error, la cantidad de jugadores permitidos son entre 2 y 12"
-      }
-}
+    }
+    }
 )
+

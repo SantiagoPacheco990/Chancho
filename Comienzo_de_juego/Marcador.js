@@ -2,10 +2,11 @@ export class Marcador {
     cantidadLetras = 0;
     maxLetras;
     palabra = "CHANCHO";
+    nombreJugador;
 
-    constructor(container) {
+    constructor(container, guardarPartida) {
+        this.guardarPartida = guardarPartida
         this.maxLetras = this.palabra.length;
-
         this.container = container;
         this.template = document.querySelector("#marcador-template");
 
@@ -26,6 +27,13 @@ export class Marcador {
 
         // Añade el marcador al contenedor
         this.container.appendChild(this.elemento);
+
+        //Cada marcador tiene el nombre del jugador
+        this.nombreJugador = this.elemento.querySelector(".ingresar_nombre_jugador");
+        this.nombreJugador.addEventListener("input", () => {    //Permite guardar su estado cuando se le coloque el nombre al jugador
+            this.guardarPartida();
+        });
+        
 
         // Verifica si los botones están correctamente seleccionados
         this.boton_incremento = this.elemento.querySelector(".boton-incremento");
@@ -69,6 +77,8 @@ export class Marcador {
                 this.mostrarBtnVolver();
                 this.marcadorJugadorEliminado();
             }  
+
+            this.guardarPartida();
         }
     }
     
@@ -79,6 +89,8 @@ export class Marcador {
             casillero.value = "";
             casillero.classList.remove("activo"); 
         }
+
+        this.guardarPartida();
     }
     
     reiniciarMarcador(){
@@ -125,6 +137,10 @@ export class Marcador {
             });
             btnVolver.dataset.listenerAdded = "true";
         }
+    }
+
+    vaciarNombreJugador(){
+        this.nombreJugador.value = ""
     }
 
 }
