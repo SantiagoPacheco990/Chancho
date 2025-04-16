@@ -41,7 +41,7 @@ const marcadores = [];
 const crearMarcadores = (jugadores) =>{
   const container = document.querySelector(".container"); /*Hace referencia al container de los marcadores*/ 
   for (let i = 0; i < jugadores; i++) {
-    marcadores.push(new Marcador(container, () => guardarEstadoPartida(marcadores)));
+    marcadores.push(new Marcador(container, () => guardarEstadoPartida(marcadores), () => jugadorGanador(marcadores)));
   }
 }
 
@@ -109,6 +109,38 @@ restaurarEstadoPartida();
 
 /*********************************************/
 
+/******************BUSCAR AL JUGADOR GANADOR************************/
+const modal_jugador_ganador = document.getElementById("modal_jugador_ganador");
+
+function jugadorGanador(jugadores) {
+  // Filtra los jugadores que no están eliminados (es decir, los que no han completado la palabra)
+  const jugadoresActivos = jugadores.filter(jugador => jugador.cantidadLetras < jugador.maxLetras);
+
+  // Si solo queda un jugador activo, es el ganador
+  if (jugadoresActivos.length === 1) {
+    const ganador = jugadoresActivos[0];
+    const titulo_del_ganador = document.getElementById("titulo_ganador"); // Es el h2 del modal del ganador
+    modal_jugador_ganador.showModal();
+    titulo_del_ganador.textContent = `🏆 ¡${ganador.nombreJugador.value} ganó la partida! 🎉`;
+  }
+}
+
+
+const btn_volver_a_jugar = document.getElementById("btn_volver_a_jugar");
+const btn_volver_al_inicio = document.getElementById("btn_volver_al_inicio");
+
+btn_volver_a_jugar.addEventListener("click",() =>{
+  modal_jugador_ganador.close();
+  reiniciarMarcadores(marcadores);
+  guardarEstadoPartida(marcadores);
+})
+
+btn_volver_al_inicio.addEventListener("click", () =>{
+  modal_jugador_ganador.close();
+  localStorage.removeItem("estadoPartida");
+})
+
+/*********************************************/
 /*********Para reiniciar los marcadores************/
 function reiniciarMarcadores (vecMarc) {
   vecMarc.map(marcador =>{

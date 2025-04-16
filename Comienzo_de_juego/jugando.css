@@ -251,10 +251,12 @@ body{
 
 .fondo-btn:first-child:hover{
     background-color: rgb(189, 19, 19);
+    outline: 2px solid white;
 }
 
 .fondo-btn:nth-child(2):hover{
     background-color: rgb(64, 19, 189);
+    outline: 2px solid white;
 }
 
 .img-reinicio{
@@ -288,6 +290,11 @@ dialog::backdrop{   /*Permite cambiar el fonde de atras del Modal*/
 dialog[open]{
     position: fixed;
     
+}
+
+#modal_jugador_ganador{
+    width: 400px;
+    height: auto;
 }
 
 #modal_reiniciar{
@@ -349,6 +356,12 @@ dialog[open]{
 #btn_volver:hover,
 #reiniciar:hover{
     background: rgb(2, 2, 158);
+}
+
+
+.imagen_chanchito_campeon{
+    width: 90%;
+    height: auto;
 }
 
 @media(width<=432px){

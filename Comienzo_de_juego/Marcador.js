@@ -4,8 +4,9 @@ export class Marcador {
     palabra = "CHANCHO";
     nombreJugador;
 
-    constructor(container, guardarPartida) {
-        this.guardarPartida = guardarPartida
+    constructor(container, guardarPartida, jugadorGanador) {
+        this.guardarPartida = guardarPartida;
+        this.jugadorGanador = jugadorGanador;
         this.maxLetras = this.palabra.length;
         this.container = container;
         this.template = document.querySelector("#marcador-template");
@@ -76,6 +77,7 @@ export class Marcador {
             if (this.cantidadLetras === this.maxLetras) {
                 this.mostrarBtnVolver();
                 this.marcadorJugadorEliminado();
+                this.jugadorGanador();
             }  
 
             this.guardarPartida();
@@ -134,6 +136,7 @@ export class Marcador {
                 this.ocultarBtnVolver();
                 this.quitarLetra();
                 this.quitarMarcadorEliminado();
+                this.jugadorGanador();
             });
             btnVolver.dataset.listenerAdded = "true";
         }
