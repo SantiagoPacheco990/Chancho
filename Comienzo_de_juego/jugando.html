@@ -19,7 +19,7 @@
     <div class="container"></div>
     <template id="marcador-template">
         <div class="marcador">
-            <input type="text" class="ingresar_nombre_jugador" placeholder="Ingrese jugador">
+            <input type="text" class="ingresar_nombre_jugador" placeholder="Ingrese jugador" maxlength="10">
             <div class="boton_y_palabra">
                 <input type="text" class="casillero-palabra" readonly>
                 <input type="text" class="casillero-palabra" readonly>
@@ -43,8 +43,8 @@
 
     <dialog id="modal_reiniciar">
         <div class="container-contenido-modal reiniciar">
-            <h2>¿Quieres reinicar la partida?🤔</h2>
-            <h4 class="texto-jugadores">¡Cuidado! Si reinicias la pardida los puntos de los jugadores se perderán</h4>
+            <h2>¿Quieres reiniciar la partida?🤔</h2>
+            <h4 class="texto-jugadores">¡Cuidado! Si reiniciar la partida los puntos de los jugadores se perderán</h4>
             <div class="btn-modal">
                 <button type="submit" class="botones-modal" id="reiniciar">Reiniciar partida</button>
                 <button type="button" class="botones-modal" id="cerrarModalReiniciar">Cerrar</button>
@@ -65,7 +65,9 @@
 
     <dialog id="modal_jugador_ganador">
         <div class="container-contenido-modal jugador_ganador">
-            <img src="/imagenes/Chanchito_campeon.jpg" class="imagen_chanchito_campeon">
+            <div class="marco-chancho-ganador">
+                <img src="/imagenes/Chanchito_campeon.jpg" class="imagen_chanchito_campeon">
+            </div>
             <h2 id="titulo_ganador"></h2>
             <div class="btn-modal">
                 <button type="submit" class="botones-modal" id="btn_volver_a_jugar">Volver a jugar</button>
@@ -74,7 +76,11 @@
         </div>
     </dialog>
 
+    <canvas id="confetti-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 99999;"></canvas>
     <script type="module" src="jugando.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    
+
 </body>
 
 </html>

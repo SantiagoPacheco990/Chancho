@@ -276,7 +276,7 @@ dialog{
     border: none;
     border-radius: 10px;
     width: 450px;
-    height: 320px;
+    height: 300px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     animation: fadeIn 0.3s ease-in-out;
@@ -293,16 +293,18 @@ dialog[open]{
 }
 
 #modal_jugador_ganador{
-    width: 400px;
+    width: 450px;
     height: auto;
+    padding: 0;
 }
 
+
 #modal_reiniciar{
-    background: green;
+    background: rgb(116, 5, 190);
 }
 
 #volverAlInicio{
-    background: orange;
+    background: rgb(209, 7, 165);
 }
 
 @keyframes fadeIn{
@@ -322,22 +324,68 @@ dialog[open]{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%;
+    height: 90%;
 }
 
+h2{
+    font-size: 30px;
+}
+
+h4{
+    font-size: 18px;
+}
+
+h2,h4{
+    color: aliceblue;
+    font-weight: 500;
+}
+
+#titulo_ganador{
+    font-size: 25px;
+    color: black;
+}
+
+.btn-modal{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    margin-bottom: 20px;
+    gap: 0 30px;
+}
 
 .botones-modal,
-#btn_volver{
+#btn_volver,
+#btn_volver_al_inicio{
     padding: 15px 35px;
     border-radius: 25px;
     cursor: pointer;
 }
 
+button,a:focus,
+button,a:active {
+  outline: none;
+  border: none;
+}
+  
+
 #cerrarModalReiniciar,
-#cerrarModalVolverInicio{
+#cerrarModalVolverInicio,
+#btn_volver_a_jugar{
     background: red;
     color: white;
     border: none;
     transition: 0.4s ease;
+}
+
+#btn_volver_a_jugar{
+    background: orange;
+}
+
+#btn_volver_a_jugar:hover{
+    background: rgb(180, 119, 5);
 }
 
 #cerrarModalReiniciar:hover, 
@@ -345,7 +393,7 @@ dialog[open]{
     background: rgb(184, 3, 3);
 }
 
-#btn_volver,#reiniciar{
+#btn_volver,#reiniciar,#btn_volver_al_inicio{
     text-decoration: none;
     background: blue;
     border: none;
@@ -354,16 +402,28 @@ dialog[open]{
 }
 
 #btn_volver:hover,
-#reiniciar:hover{
+#reiniciar:hover,
+#btn_volver_al_inicio:hover{
     background: rgb(2, 2, 158);
 }
 
+.marco-chancho-ganador{
+    width: 100%;
+    height: 90%;
+    position: relative;
+    background: rgb(194, 110, 14);
+}
 
 .imagen_chanchito_campeon{
-    width: 90%;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    border-radius: 15px;
+    width: 80%;
     height: auto;
 }
 
+/***********************MEDIA QUERYS***********************/
 @media(width<=432px){
         
 
@@ -394,6 +454,18 @@ dialog[open]{
     dialog{
         width: 350px;
         height: 250px;
+    }
+
+    #modal_jugador_ganador{
+        height: 70%;
+    }
+
+    h2{
+        font-size: 25px;
+    }
+    
+    h4{
+        font-size: 15px;
     }
 
 }

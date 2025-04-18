@@ -122,6 +122,12 @@ function jugadorGanador(jugadores) {
     const titulo_del_ganador = document.getElementById("titulo_ganador"); // Es el h2 del modal del ganador
     modal_jugador_ganador.showModal();
     titulo_del_ganador.textContent = `🏆 ¡${ganador.nombreJugador.value} ganó la partida! 🎉`;
+    
+    confetti({
+      particleCount: 800,
+      spread: 180,
+      origin: { y: 0.6 },
+    });
   }
 }
 
