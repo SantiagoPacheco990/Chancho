@@ -27,3 +27,22 @@ document.getElementById('envio-de-jugadores').addEventListener('submit', (e) => 
     }
 )
 
+
+//Metodo que limpia el input y cierra el diglo del inicio cuando se retrocede de pagina
+//en el medio de la partida
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+    // Limpiar localStorage por si quedó algo guardado
+    localStorage.removeItem("estadoPartida");
+
+    // Limpiar input y cerrar el dialog
+    const inputCantidad = document.querySelector("#cantidad-jugadores");
+    const modalInicio = document.querySelector("#miDialog");
+
+    if (inputCantidad) inputCantidad.value = "";
+    if (modalInicio && modalInicio.open) {
+      modalInicio.close();
+    }
+  }
+});
+

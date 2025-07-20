@@ -175,3 +175,11 @@ btnVolverInicio.addEventListener("click", () =>{
 })
 /*********************************************/
 
+// Limpia el localStorage si el usuario vuelve usando la flecha del navegador
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+    localStorage.removeItem("estadoPartida");
+    // Opcional: Forzamos recarga para evitar mostrar estado viejo en el DOM
+    location.reload();
+  }
+});
