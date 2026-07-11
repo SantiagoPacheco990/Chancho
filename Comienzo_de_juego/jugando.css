@@ -6,32 +6,84 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.container-tit-img{
+
+/********************Parte del titulo********************/
+.container-opciones{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    background: linear-gradient(135deg, rgba(255,255,255, 0.1), rgba(255,255,255,0));
+    border-radius: 15px;
+    margin: 20px;
+    width: 50%;
+    backdrop-filter: blur(10px);
+    z-index: 1;
+}
+
+.cajita_emoji{
     display: flex;
     justify-content: center;
-    margin-bottom: 25px;
+    align-items: center;
+    background: rgb(160, 21, 97);
+    border-radius: 15%;
+    padding: 8px;
+    margin: 10px;
 }
 
-.container-titulo{
-    display: grid;
-    width: 300px;
-    height: auto;
-    position: relative;
+.img-emoji{
+    width: 90px;
+    height: 90px;
+}
+
+.cont_titulos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex:1;
 }
 
 .titulo{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-53%,-150%);
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+    margin: 0;
+    line-height:1;
 }
 
-.marco-titulo{
-    width: 100%;
-    height: 100%;
+h3{
+    font-size:14px;
+    font-weight:700;
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: white;
+}
+
+/*Es la caja de los botones con las opciones*/
+.caja_botones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 50%;
+    margin-right: 20px;
+    border-radius: 60px;
+    border: 2px solid rgb(43, 12, 31);
+    background: rgb(192, 5, 145);
+}
+
+
+
+.caja-opciones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(102, 14, 160);
+    margin: 10px;
+    border-radius: 60px;
 }
 /*************************************************************/
 

@@ -10,12 +10,20 @@
 </head>
 
 <body>
-    <div class="container-tit-img">
-        <div class="container-titulo">
-            <img src="../imagenes/Marco-del-titulo.png" class="marco-titulo">
-            <h1 class="titulo">CHANCHO</h1>
+    <div class="container-opciones">    
+            <div class="cajita_emoji">
+                <img src="../imagenes/chanchito_con_cartas.png" class="img-emoji">
+            </div>
+            <div class="cont_titulos">
+                <h1 class="titulo">Chancho</h1>
+                <h3>PARTIDA COMENZADA</h3>
+            </div>
+            <div class="caja_botones">    
+                <a class="fondo-btn" id="abrirModalVolverInicio"><img src="../imagenes/icono-casa.png" class="img-casa"></a>
+                <a class="fondo-btn" id="abrirModalVolverInicio"><img src="../imagenes/" class="img-casa"></a>
+                <a class="fondo-btn" id="abrirModalReiniciar"><img src="../imagenes/mdi-light--refresh.png" class="img-reinicio"></a>
+            </div>
         </div>
-    </div>
     <div class="container"></div>
     <template id="marcador-template">
         <div class="marcador">
@@ -36,10 +44,7 @@
             <button class="boton-volver">Volver</button>
         </div>
     </template>
-    <div class="volver-al-inicio">
-        <a class="fondo-btn" id="abrirModalReiniciar"><img src="../imagenes/mdi-light--refresh.png" class="img-reinicio"></a>
-        <a class="fondo-btn" id="abrirModalVolverInicio"><img src="../imagenes/icono-casa.png" class="img-casa"></a>
-    </div>
+    
 
     <dialog id="modal_reiniciar">
         <div class="container-contenido-modal reiniciar">
