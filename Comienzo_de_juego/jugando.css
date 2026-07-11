@@ -1,6 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{   
     font-family: Arial, Helvetica, sans-serif;
-    padding: 15px;
     background-image: url(../imagenes/fondo.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -8,7 +13,9 @@ body{
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    padding-bottom: 40px;
 }
 
 
@@ -19,8 +26,9 @@ body{
     align-items: center;
     background: linear-gradient(135deg, rgba(255,255,255, 0.1), rgba(255,255,255,0));
     border-radius: 15px;
+    margin-top: 20px;
     margin-bottom: 25px;
-    width: 50%;
+    width: 70%;
     backdrop-filter: blur(10px);
     z-index: 1;
 }
@@ -31,13 +39,14 @@ body{
     align-items: center;
     background: rgb(160, 21, 97);
     border-radius: 15%;
+    border: 2px solid rgb(255, 255, 255);
     padding: 8px;
     margin: 10px;
 }
 
 .img-emoji{
-    width: 90px;
-    height: 90px;
+    width: 85px;
+    height: 85px;
 }
 
 .cont_titulos{
@@ -51,6 +60,7 @@ body{
     color: rgb(255, 255, 255);
     font-weight: 900;
     margin: 0;
+    font-size: 30px;
     line-height:1;
 }
 
@@ -65,26 +75,75 @@ h3{
 /*Es la caja de los botones con las opciones*/
 .caja_botones{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     gap: 10px;
+    padding: 12px 2px;
     width: 50%;
     margin-right: 20px;
     border-radius: 60px;
-    border: 2px solid rgb(43, 12, 31);
-    background: rgb(192, 5, 145);
+    background: rgb(160, 21, 97);
+    border: 2px solid rgb(255, 253, 254);
+    
 }
-
-
 
 .caja-opciones{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(102, 14, 160);
     margin: 10px;
     border-radius: 60px;
 }
+
+a{
+    cursor: pointer;
+}
+
+
+.img-casa{
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M1 11C.08 11-.352 9.863.336 9.253l9-8a1 1 0 0 1 1.328 0l9 8C20.352 9.863 19.92 11 19 11h-1v7a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-7zm6 6v-5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v5h3v-7a1 1 0 0 1 .512-.873L10 3.337l-6.512 5.79A1 1 0 0 1 4 10v7zm2 0v-4h2v4z' clip-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.img_reloj{
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m4.2 14.2L11 13V7h1.5v5.2l4.5 2.7z'/%3E%3C/svg%3E");
+}
+
+.img-reinicio{
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M1.75 16.002C3.353 20.098 7.338 23 12 23c6.075 0 11-4.925 11-11m-.75-4.002C20.649 3.901 16.663 1 12 1C5.925 1 1 5.925 1 12m8 4H1v8M23 0v8h-8'/%3E%3C/svg%3E");
+}
+
+.img_add_jugador{
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none'%3E%3Cpath d='m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z'/%3E%3Cpath fill='%23fff' d='M10.5 20a1.5 1.5 0 0 0 3 0v-6.5H20a1.5 1.5 0 0 0 0-3h-6.5V4a1.5 1.5 0 0 0-3 0v6.5H4a1.5 1.5 0 0 0 0 3h6.5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.img-casa,
+.img_reloj,
+.img-reinicio,
+.img_add_jugador{
+    width: 35px;
+    height: 35px;
+}
+
+.img-casa:hover,
+.img_reloj:hover,
+.img-reinicio:hover,
+.img_add_jugador:hover{
+    transform: scale(1.2);
+    transition: 0.3s ease;
+}
+
 /*************************************************************/
 
 /**************ELEMENTOS DEL JUEGO**************/
@@ -110,6 +169,7 @@ h3{
     min-height: 60vh;
     position: relative;
     padding: 15px;
+    padding-bottom: 30px;
     outline: 3px solid rgb(219, 20, 143);
     border-radius: 10px;
     box-sizing: border-box;
@@ -150,7 +210,7 @@ h3{
     outline: 3px solid rgb(219, 20, 143);
     border-radius: 4px;
     height: 30px;
-    width: 98%;
+    width: 100%;
     font-size: 20px;
 }
 
@@ -261,65 +321,22 @@ h3{
     justify-content: center;
     align-items: center;
     text-align: center;
-    border: none;
     position: absolute;
+    bottom: 0;
+    border: none;
     font-weight: 600;
     font-size: 13px;
-    width: 100px;
+    width: 100%;
     height: 30px;
     border-radius: 5px;
     color: white;
     outline: 2px solid rgb(255, 255, 255);
     background: rgb(219, 20, 143);
     cursor: pointer;
-    transform: translateY(660%);
 }
 
-/*----------Botones para elegir lo que quiera hacer el usuario---------------*/
 
-.volver-al-inicio{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: fixed;
-    right: 10px;
-    bottom: 10px;
-}
-
-/*El fondo que tendran los botones*/
-.fondo-btn{
-    background-color: whitesmoke;
-    width: 35px;
-    height: 35px;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 7px 0px;
-    cursor: pointer;
-    transition: ease 0.4s;
-}
-
-.fondo-btn:first-child:hover{
-    background-color: rgb(189, 19, 19);
-    outline: 2px solid white;
-}
-
-.fondo-btn:nth-child(2):hover{
-    background-color: rgb(64, 19, 189);
-    outline: 2px solid white;
-}
-
-.img-reinicio{
-    width: 80%;
-    height: 80%;
-}
-
-.img-casa{
-    width: 80%;
-    height: 80%;
-}
+/**************MODALES**************/
 
 /*Modales de los botones de Reiniciar y Volver*/
 dialog{
@@ -344,12 +361,28 @@ dialog[open]{
     
 }
 
+/*MODAL DE JUGADOR GANADOR*/
 #modal_jugador_ganador{
-    width: 450px;
+    width: 60%;
     height: auto;
     padding: 0;
 }
 
+.marco-chancho-ganador{
+    width: 60%;
+    height: auto;
+    border-radius: 20px;
+    background-color: #93291E;
+    position: relative;
+    
+}
+
+.imagen_chanchito_campeon{
+    width: 70%;
+    height: auto;
+}
+
+/*MODAL REINICIAR LA PARTIDA*/
 
 #modal_reiniciar{
     background: rgb(116, 5, 190);
@@ -459,31 +492,67 @@ button,a:active {
     background: rgb(2, 2, 158);
 }
 
-.marco-chancho-ganador{
-    width: 100%;
-    height: 90%;
-    position: relative;
-    background: rgb(194, 110, 14);
-}
 
-.imagen_chanchito_campeon{
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    border-radius: 15px;
-    width: 80%;
-    height: auto;
-}
 
 /***********************MEDIA QUERYS***********************/
-@media(width<=432px){
-        
 
+/*****************CELULARES*****************/
+@media screen and (max-width: 480px) {  /**/
+    
     .container {
-        gap: 55px 50px; 
-        padding: 0 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        width: 100%;
+        margin: auto;
     }
 
+
+    /**********EL HEADER**********/
+
+    .container-opciones{
+        width: 95%;
+        position: sticky;
+        top: 15px;
+        margin-bottom: 50px;
+    }
+
+    .img-emoji{
+        width: 45px;
+        height: 45px;
+    }
+
+    .titulo{
+        color: rgb(255, 255, 255);
+        font-weight: 900;
+        margin: 0;
+        line-height:1;
+        font-size: 18px;
+    }
+
+    h3{
+        font-size: 8px;
+        font-weight:700;
+        margin-top: 7px;
+        margin-bottom: 0;
+        color: white;
+    }
+
+    .caja_botones{
+        margin:0;
+        margin-right: 10px;
+    }
+
+    .img-casa,
+    .img_reloj,
+    .img-reinicio,
+    .img_add_jugador{
+        width: 20px;
+        height: 20px;
+    }
+
+    /**********MARCADORES**********/
     .marcador {
         width: calc(50% - 50px); /* Dos por fila con espacio entre ellos */
         min-height: 20vh; /* Opcional, si querés que se vea más compacto en celular */
@@ -497,10 +566,6 @@ button,a:active {
     .botones-inc-dec{
         width: 50px;
         height: 50px;
-    }
-
-    .mostrar{
-        transform: translateY(770%);
     }
 
     dialog{
