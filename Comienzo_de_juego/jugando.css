@@ -382,7 +382,6 @@ dialog{
     width: 90%;
     max-width: 650px;
     max-height: 80vh;
-    height: auto;
     padding: 25px;
     text-align: center;
     touch-action: none; /* Evita el desplazamiento táctil en el celu*/
@@ -401,43 +400,37 @@ dialog[open]{
 
 /*MODAL VOLVER AL INICIO*/
 .imagen_chanchito_volver_inicio{
-    width: 40%;
+    width: 50%;
     height: auto;
 }
+
+#volverAlInicio{
+    background: linear-gradient(180deg, #ff2ebd, #d100a7);
+}
+
 /*MODAL PARA REINICIAR LA PARTIDA*/
 
 .imagen_chanchito_reiniciar{
-    width: 30%;
+    width: 40%;
     height: auto;
 }
 
 #modal_reiniciar{
-    background: rgb(116, 5, 190);
+    background: linear-gradient(180deg,#7f19d8,#5711b5);
 }
 
 /*MODAL DE JUGADOR GANADOR*/
 #modal_jugador_ganador{
-    background: rgb(5, 8, 190);
+    background: linear-gradient(180deg,#0b36ff,#001d8d);
 }
 
-.marco-chancho-ganador{
-    width: 80%;
-    height: auto;
-    border-radius: 20px;
-    background-color: #93291E;
-    position: relative;
-    
-}
 
 .imagen_chanchito_campeon{
-    width: 90%;
+    width: 40%;
     height: auto;
 }
 
 
-#volverAlInicio{
-    background: rgb(209, 7, 165);
-}
 
 /*****ANIMACION MODAL*****/
 @keyframes animacion_dialog{
@@ -453,38 +446,24 @@ dialog[open]{
 
 @keyframes rebote{
 
-    0%, 100%{
+    0%{
         transform: translateY(0);
+        animation-timing-function: ease-out;
     }
 
-    /* Despega */
-    25%{
+    35%{
         transform: translateY(-22px);
+        animation-timing-function: ease-in;
     }
 
-    /* Punto más alto */
-    40%{
-        transform: translateY(-28px);
-    }
-
-    /* Baja */
-    70%{
+    100%{
         transform: translateY(0);
     }
-
-    /* Se queda un instante apoyado */
-    85%{
-        transform: translateY(0);
-    }
-
 }
 
 /*ANIMACION DE REBOTE USADA EN LOS EMOJIS DE LOS MODALES*/
-
-.imagen_chanchito_volver_inicio,
-.imagen_chanchito_reiniciar,
 .imagen_chanchito_campeon{
-    animation: rebote 2s ease-in-out infinite;
+    animation: rebote 1.7s  infinite;
 }
 
 
@@ -495,13 +474,14 @@ dialog[open]{
     align-items: center;
     flex-direction: column;
     gap: 10px;
+    position: relative; 
 }
 
-h2{
+.container-contenido-modal h2{
     font-size: 25px;
 }
 
-h4{
+.container-contenido-modal h4{
     font-size: 15px;
 }
 
@@ -512,70 +492,94 @@ h2,h4{
 
 #titulo_ganador{
     font-size: 25px;
-    color: black;
+    color: white;
 }
+
+/*BOTONES DEL MODAL*/
 
 .btn-modal{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
-    gap: 20px;
-    margin-top:20px;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
 }
 
-.botones-modal,
-#btn_volver,
-#btn_volver_al_inicio{
-    font-size: 15px;
-    padding: 15px 35px;
+/* Estilo base para TODOS los botones */
+.btn-modal button,
+.btn-modal a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 180px;
+    height: 52px;
+    padding: 0 20px;
+    border: 2px solid white;
     border-radius: 10px;
-    cursor: pointer;
-}
-
-button,a:focus,
-button,a:active {
-  outline: none;
-  border: none;
-}
-  
-
-#cerrarModalReiniciar,
-#cerrarModalVolverInicio,
-#btn_volver_a_jugar{
-    background: red;
+    font-size: 15px;
+    font-weight: 600;
     color: white;
-    border: none;
-    transition: 0.4s ease;
-}
-
-#btn_volver_a_jugar{
-    background: orange;
-}
-
-#btn_volver_a_jugar:hover{
-    background: rgb(180, 119, 5);
-}
-
-#cerrarModalReiniciar:hover, 
-#cerrarModalVolverInicio:hover{
-    background: rgb(184, 3, 3);
-}
-
-#btn_volver,#reiniciar,#btn_volver_al_inicio{
     text-decoration: none;
-    background: blue;
-    border: none;
-    color: white;
-    transition: 0.5s ease;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+/* Elimina el outline */
+button:focus,
+button:active,
+a:focus,
+a:active{
+    outline: none;
+}
+
+/*================ BOTONES AZULES ================*/
+
+#btn_volver,
+#reiniciar,
+#btn_volver_al_inicio{
+    background: linear-gradient(180deg,#2563ff,#0038d6);
 }
 
 #btn_volver:hover,
 #reiniciar:hover,
 #btn_volver_al_inicio:hover{
-    background: rgb(2, 2, 158);
+    background: linear-gradient(180deg,#4b7bff,#0b2db6);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,.25);
 }
 
+/*================ BOTONES ROJOS ================*/
+
+#cerrarModalReiniciar,
+#cerrarModalVolverInicio{
+
+    background: linear-gradient(180deg,#ff4343,#d10000);
+}
+
+#cerrarModalReiniciar:hover,
+#cerrarModalVolverInicio:hover{
+    background: linear-gradient(180deg,#ff6d6d,#b60000);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,.25);
+}
+
+/*================ BOTÓN NARANJA ================*/
+
+#btn_volver_a_jugar{
+    background: linear-gradient(180deg,#ffb31a,#ff8a00);
+}
+
+#btn_volver_a_jugar:hover{
+    background: linear-gradient(180deg,#ffc54d,#e57700);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,.25);
+}
+
+.btn-modal button:active,
+.btn-modal a:active{
+    transform: scale(.96);
+}
 
 
 /***********************MEDIA QUERYS***********************/
@@ -655,15 +659,21 @@ button,a:active {
     /**********MODALES**********/
     dialog{
         width: 90%;
-        height: 65vh;
+        height: 70vh;
     }
 
-    h2{
-        font-size: 25px;
+    .container-contenido-modal h2{
+        font-size: 22px;
+        font-weight: 800;
     }
     
     h4{
-        font-size: 15px;
+        font-size: 13px;
+    }
+
+    .container-contenido-modal{
+        gap: 22px;
+        padding: 12px 0;
     }
 
     .btn-modal{
@@ -678,12 +688,21 @@ button,a:active {
 
     /*MODAL VOLVER AL INICIO*/
     .imagen_chanchito_volver_inicio{
-        width: 70%;
+        width: 80%
     }
     /*MODAL PARA REINICIAR LA PARTIDA*/
 
     .imagen_chanchito_reiniciar{
-        width: 60%;
+        width: 70%;
+    }
+
+    .imagen_chanchito_campeon{
+        width: 80%;
+    }
+
+    #titulo_ganador{
+        font-size: 21px;
+        font-weight: 800;
     }
 
 }

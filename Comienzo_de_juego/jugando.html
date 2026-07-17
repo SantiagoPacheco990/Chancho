@@ -28,7 +28,7 @@
     <div class="container"></div>
     <template id="marcador-template">
         <div class="marcador">
-            <input type="text" class="ingresar_nombre_jugador" placeholder="Ingrese jugador" maxlength="10">
+            <input type="text" class="ingresar_nombre_jugador" placeholder="Ingrese jugador" maxlength="9">
             <div class="boton_y_palabra">
                 <input type="text" class="casillero-palabra" readonly>
                 <input type="text" class="casillero-palabra" readonly>
@@ -52,7 +52,7 @@
     <dialog id="volverAlInicio">
         <div class="container-contenido-modal volver_inicio">
             <img src="../imagenes/chanchito_casa.png" class="imagen_chanchito_volver_inicio">
-            <h2>¿Quieres volver al inicio?🤔</h2>
+            <h2>¿Quieres volver al inicio?</h2>
             <h4 class="texto-jugadores">¡Cuidado! Si regresas al inicio se perderá el estado de la partida actual</h4>
             <div class="btn-modal">
                 <a href="../index.html" class="botones-modal" id="btn_volver">Volver al inicio</a>
@@ -64,7 +64,7 @@
     <dialog id="modal_reiniciar">
         <div class="container-contenido-modal reiniciar">
             <img src="../imagenes/Chanchito_reiniciar.png" class="imagen_chanchito_reiniciar">
-            <h2>¿Quieres reiniciar la partida?🤔</h2>
+            <h2>¿Quieres reiniciar la partida?</h2>
             <h4 class="texto-jugadores">¡Cuidado! Si reiniciar la partida los puntos de los jugadores se perderán</h4>
             <div class="btn-modal">
                 <button type="submit" class="botones-modal" id="reiniciar">Reiniciar partida</button>
@@ -88,9 +88,7 @@
     </dialog>
 
     <canvas id="confetti-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 99999;"></canvas>
-    <script type="module" src="jugando.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-    
+    <script type="module" src="jugando.js" defer></script>    
 
 </body>
 
