@@ -42,13 +42,28 @@
                     <button class="boton-decremento botones-inc-dec">-</button>
                 </div>
             </div>
-            <button class="boton-volver">Volver</button>
+            <button class="boton-volver">
+                Volver
+                <a class="flecha_volver"></a>
+            </button>
         </div>
     </template>
     
-
+    <dialog id="volverAlInicio">
+        <div class="container-contenido-modal volver_inicio">
+            <img src="../imagenes/chanchito_casa.png" class="imagen_chanchito_volver_inicio">
+            <h2>¿Quieres volver al inicio?🤔</h2>
+            <h4 class="texto-jugadores">¡Cuidado! Si regresas al inicio se perderá el estado de la partida actual</h4>
+            <div class="btn-modal">
+                <a href="../index.html" class="botones-modal" id="btn_volver">Volver al inicio</a>
+                <button type="button" class="botones-modal" id="cerrarModalVolverInicio">Cerrar</button>
+            </div>
+        </div>
+    </dialog>
+    
     <dialog id="modal_reiniciar">
         <div class="container-contenido-modal reiniciar">
+            <img src="../imagenes/Chanchito_reiniciar.png" class="imagen_chanchito_reiniciar">
             <h2>¿Quieres reiniciar la partida?🤔</h2>
             <h4 class="texto-jugadores">¡Cuidado! Si reiniciar la partida los puntos de los jugadores se perderán</h4>
             <div class="btn-modal">
@@ -58,16 +73,6 @@
         </div>
     </dialog>
 
-    <dialog id="volverAlInicio">
-        <div class="container-contenido-modal volver_inicio">
-            <h2>¿Quieres volver al inicio?🤔</h2>
-            <h4 class="texto-jugadores">¡Cuidado! Si regresas al inicio se perderá el estado de la partida actual</h4>
-            <div class="btn-modal">
-                <a href="../index.html" class="botones-modal" id="btn_volver">Volver al inicio</a>
-                <button type="button" class="botones-modal" id="cerrarModalVolverInicio">Cerrar</button>
-            </div>
-        </div>
-    </dialog>
 
     <dialog id="modal_jugador_ganador">
         <div class="container-contenido-modal jugador_ganador">

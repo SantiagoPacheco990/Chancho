@@ -118,15 +118,15 @@ export class Marcador {
     marcadorJugadorEliminado(){
         this.elemento.classList.add("eliminado");
         //Inhabilitamos los botones de inc y dec
-        this.boton_incremento.disabled = true;
-        this.boton_decremento.disabled = true;
+        this.boton_incremento.classList.add("btn_oculto");
+        this.boton_decremento.classList.add("btn_oculto");
     }
 
     quitarMarcadorEliminado() {
         this.elemento.classList.remove("eliminado");
-        //Habilitamos los botones de inc y dec
-        this.boton_incremento.disabled = false;
-        this.boton_decremento.disabled = false;
+        //Mostramoes los botones de inc y dec
+        this.boton_incremento.classList.remove("btn_oculto");
+        this.boton_decremento.classList.remove("btn_oculto");
     }
 
     volverJugador(){
