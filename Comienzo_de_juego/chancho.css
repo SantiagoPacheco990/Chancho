@@ -5,7 +5,7 @@ body {
     flex-direction: column;
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
-    background-image: url(../imagenes/fondito.png);
+    background-image: url(../imagenes/fondo_inicio.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -19,7 +19,8 @@ body {
     padding: 50px 30px;
     align-items: center;
     background: linear-gradient(135deg, rgba(255,255,255, 0.1), rgba(255,255,255,0));
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(8px);
+    border: 2px solid white;
     box-shadow: 0 8px 32px 0 rgba(0,0,0, 0.37);
     border-radius: 10px;
     height: 450px;
@@ -32,18 +33,38 @@ body {
 
 /*Imagen principal de los chanchos*/
 .img-chanchos{
-    width: 230px;
-    height: 230px;
-    margin-bottom: 15px;
+    width: 200px;
+    height: 200px;
     box-shadow: 1px 1px 12px #CDA357;
     border: 1px solid #573d0c;
 }
+
+h1{
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    background: linear-gradient(
+        to bottom,
+        #fff6b3 0%,
+        #ffe07a 20%,
+        #ffc93c 45%,
+        #d89b00 70%,
+        #fff3b0 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow:
+        0 2px 2px rgba(0,0,0,.45),
+        0 0 8px rgba(255,208,80,.35);
+}
+
+/******Botones******/
 
 .borde-boton{
     position: relative;
     width: 225px;
     height: 300px;
-    margin: 10px;
+    margin: 5px;
     background: #f5f4f3;
     clip-path: polygon(25% 0%, 75% 0%, 90% 50%, 75% 90%, 25% 90%, 10% 50%);
     display: flex;
@@ -52,7 +73,6 @@ body {
     z-index: 1;
 }
 
-/*Botones*/
 
 .boton::after{
     content: "";
@@ -61,8 +81,8 @@ body {
     z-index: 1;
     top: 0;
     left: -100%;
-    border-bottom: 80px solid rgb(21, 111, 230);
-    border-right: 80px solid transparent;
+    border-bottom:80px solid #4C1D95;
+    border-right:80px solid transparent;
     transition: 0.4s ease-in-out all;
 }
 .boton span{
@@ -84,7 +104,7 @@ body {
     padding: 15px;
     margin: 16px 0px;
     color: #f5f4f3;
-    background: rgb(17, 13, 85);
+    background: linear-gradient(180deg, #ff4fbf, #ff0f8a);
     box-shadow: 0 8px 32px 0 rgba(0,0,0, 0.37);
     text-decoration: none;
     clip-path: polygon(25% 0%, 75% 0%, 90% 50%, 75% 90%, 25% 90%, 10% 50%);
@@ -96,8 +116,10 @@ body {
     margin: 0;
 }
 
+/******Redes sociales******/
+
 .redes img{
-    margin-top: 15px;
+    margin-top: 12px;
     transition: ease 0.4s;
 }
 
@@ -110,7 +132,7 @@ p{
     color: white;
     bottom: 0;
     left: 0;
-    margin: 5px;
+    margin: 3px;
     font-size: 12px;
     user-select: none;
 }
@@ -122,21 +144,21 @@ dialog{
     margin: auto;
     border: none;
     border-radius: 10px;
-    width: 450px;
-    height: 320px;
+    width: 550px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     animation: fadeIn 0.3s ease-in-out;
-    background-image: 
-    linear-gradient(
-      118deg in oklab,
-      oklch(60% .5 353) 11% 11%, oklch(80% .5 325) 96% 96%
+    border: 2px solid white;
+    background: linear-gradient(
+    180deg,
+    #ff3fbf,
+    #d4009e
     );
 }
 
 dialog::backdrop{   /*Permite cambiar el fonde de atras del Modal*/
     background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(3px); /*Fondo borroso*/
+    backdrop-filter: blur(4px); /*Fondo borroso*/
 }
 
 dialog[open]{
@@ -155,9 +177,15 @@ dialog:hover{
     flex-direction: column;
 }
 
+.img-emoji{
+    width: 70%;
+    height: auto;
+}
+
 h2{
     text-align: center;
     color: white;
+    margin-bottom: -10px;
 }
 
 h4{
@@ -179,10 +207,11 @@ h4{
 .botones-modal{
     text-decoration: none;
     color: rgb(245, 240, 240);
+    font-weight: 700;
     padding: 8px;
-    margin: 8px;
-    margin-bottom: 30px;
-    border-radius: 10px;
+    margin: 6px;
+    margin-bottom: 10px;
+    border-radius: 8px;
     cursor: pointer;
     transition: ease 0.5s;
     width: 150px;
@@ -191,13 +220,13 @@ h4{
 }
 
 .botones-modal:first-child{
-    background-color: rgb(17, 19, 141);
-    border: 3px solid rgb(9, 114, 212);
+    background:#16b84e;
+    border: 2px solid #8df5b2;
 }
 
 .botones-modal:nth-child(2){
-    background-color: rgb(235, 72, 221);
-    border: 3px solid rgb(138, 17, 118);
+    background: #dc2626;
+    border: 2px solid #fecaca;
 }
 
 .botones-modal:nth-child(2):hover{
@@ -205,15 +234,16 @@ h4{
 }
 
 form input{
-    width: 50%;
-    background: rgb(207, 207, 207);
-    margin: 20px;
-    margin-bottom: 10px;
-    padding: 12px;
+    width: 100%;
+    background: rgb(255, 254, 254);
+    margin: 10px;
+    margin-bottom: 8px;
+    padding: 15px;
     border: none;
-    border-radius: 10px;
-    outline: 1px solid black;
+    border-radius: 6px;
+    outline: 3px solid #940353;
     text-align: center;
+    transition: .3s;
 }
 
 .container-cant-jugadores{
@@ -247,6 +277,20 @@ form input::-webkit-inner-spin-button {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/***********************MEDIA QUERYS***********************/
+
+/*****************CELULARES*****************/
+@media screen and (max-width: 480px) {  
+    dialog{
+        border-radius: 10px;
+        width: 80%;
+    }
+
+    .img-emoji{
+        width: 80%;
     }
 }
 

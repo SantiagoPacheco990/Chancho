@@ -177,3 +177,5 @@ window.addEventListener("pageshow", (event) => {
     location.reload();
   }
 });
+
+/*********Mostrar el historial de las partidas************/
