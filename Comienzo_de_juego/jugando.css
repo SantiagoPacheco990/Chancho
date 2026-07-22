@@ -420,6 +420,215 @@ dialog[open]{
     background: linear-gradient(180deg,#7f19d8,#5711b5);
 }
 
+/******************************/
+/* MODAL HISTORIAL DE PARTIDAS */
+/******************************/
+
+#modal_historial{
+    width: 650px;
+    max-width: 90%;
+    border: none;
+    border-radius: 20px;
+    padding: 25px;
+    background: linear-gradient(180deg,#1d1636,#120f24);
+    color: white;
+    max-height:80vh;
+    overflow:hidden;
+    border: 1px solid white;
+    box-shadow: 0 0 30px rgba(0,0,0,.45);
+}
+
+#modal_historial::backdrop{
+    background: rgba(0,0,0,.55);
+    backdrop-filter: blur(5px);
+}
+
+/* Contenedor principal */
+
+.volver_inicio{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/******************************/
+/* CABECERA */
+/******************************/
+
+.cabecera_historial{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:15px;
+    border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+.cabecera_historial h2{
+    margin:0;
+    color:white;
+    font-size:30px;
+}
+
+.imagen_chanchito_grupo{
+    width: 25%;
+    height:auto;
+}
+
+/******************************/
+/* BOTÓN CERRAR */
+/******************************/
+
+#cerrarHistorial{
+    width:35px;
+    height:35px;
+    border:none;
+    border-radius:50%;
+    background:#ff4b5c;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.35s;
+}
+
+#cerrarHistorial:hover{
+    background:#d63045;
+    transform:rotate(90deg) scale(1.08);
+}
+
+/******************************/
+/* LISTA */
+/******************************/
+
+.lista_historial{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    overflow-y:auto;
+    max-height:450px;
+    padding-right: 20px;
+    padding-top: 15px;
+}
+
+/******************************/
+/* SCROLL */
+/******************************/
+
+.lista_historial::-webkit-scrollbar{
+    width:8px;
+}
+
+.lista_historial::-webkit-scrollbar-track{
+    background:#1b1730;
+    border-radius:10px;
+}
+
+.lista_historial::-webkit-scrollbar-thumb{
+    background:#8b5cf6;
+    border-radius:10px;
+}
+
+.lista_historial::-webkit-scrollbar-thumb:hover{
+    background:#a855f7;
+}
+
+/******************************/
+/* TARJETA */
+/******************************/
+
+.tarjeta_historial{
+    background:linear-gradient(160deg,#241845,#18152f);
+    border:1px solid #5c42b0;
+    border-left:6px solid gold;
+    border-radius:15px;
+    padding: 20px 50px;
+    color:white;
+    transition:.3s;
+}
+
+.tarjeta_historial:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 18px rgba(156,93,255,.35);
+}
+
+/******************************/
+/* PARTE SUPERIOR */
+/******************************/
+
+.historial_top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap: 20px;
+    margin-bottom:10px;
+    font-size:13px;
+    color:#b9c6ff;
+}
+
+.numero{
+    font-weight:bold;
+    color:#ffd54f;
+
+}
+
+/******************************/
+/* CUERPO */
+/******************************/
+
+.historial_body{
+    display:flex;
+    flex-direction:column;
+    gap: 15px;
+    font-size:17px;
+}
+
+.historial_body strong{
+    color:#ffd54f;
+}
+
+/******************************/
+/* PARTE INFERIOR */
+/******************************/
+
+.historial_footer{
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    color:#d4d4d4;
+    font-size:15px;
+    display:flex;
+    justify-content:center;
+}
+
+/******************************/
+/* SIN HISTORIAL */
+/******************************/
+
+.historial_vacio{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:45px 20px;
+    color:#d7d7d7;
+}
+
+.historial_vacio img{
+    width:120px;
+    margin-bottom:20px;
+}
+
+.historial_vacio h3{
+    margin:8px 0;
+    font-size:22px;
+    color:white;
+}
+
+.historial_vacio p{
+    margin:0;
+    color:#bbbbbb;
+}
+
 /*MODAL DE JUGADOR GANADOR*/
 #modal_jugador_ganador{
     background: linear-gradient(180deg,#0b36ff,#001d8d);

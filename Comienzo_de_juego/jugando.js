@@ -121,6 +121,7 @@ function jugadorGanador(jugadores) {
     const ganador = jugadoresActivos[0];
     const titulo_del_ganador = document.getElementById("titulo_ganador"); // Es el h2 del modal del ganador
     modal_jugador_ganador.showModal();
+    guardarHistorial(jugadores);  // ES PARA EL HISTORIAL
     titulo_del_ganador.textContent = `🏆 ${ganador.nombreJugador.value} ganó la partida 🏆`;
   }
 }
@@ -138,6 +139,7 @@ btn_volver_a_jugar.addEventListener("click",() =>{
 btn_volver_al_inicio.addEventListener("click", () =>{
   modal_jugador_ganador.close();
   localStorage.removeItem("estadoPartida");
+  localStorage.removeItem("historialPartidas"); // SE BORRA EL HISTORIAL ACTUAL DE LA PARTIDA
 })
 
 /*********************************************/
@@ -166,6 +168,7 @@ btnReiniciar.addEventListener("click", ()=>{
 const btnVolverInicio = document.getElementById("btn_volver")
 btnVolverInicio.addEventListener("click", () =>{
   localStorage.removeItem("estadoPartida");
+  localStorage.removeItem("historialPartidas"); // SE ELIMINA EL HISTORIAL ACTUAL DE LA PARTIDA
 })
 /*********************************************/
 
@@ -178,4 +181,94 @@ window.addEventListener("pageshow", (event) => {
   }
 });
 
-/*********Mostrar el historial de las partidas************/
+/********* HISTORIAL *********/
+
+const modalHistorial = document.getElementById("modal_historial");
+const abrirHistorial = document.getElementById("abrirModalHistorial");
+const cerrarHistorial = document.getElementById("cerrarHistorial");
+const listaHistorial = document.querySelector(".lista_historial");
+
+abrirHistorial.addEventListener("click", () => {
+    mostrarHistorial();
+    modalHistorial.showModal();
+});
+
+cerrarHistorial.addEventListener("click", () => {
+    modalHistorial.close();
+});
+
+function guardarHistorial(jugadores){
+    const historial = JSON.parse(localStorage.getItem("historialPartidas")) || [];
+    const fecha = new Date();
+    const partida = {
+        fecha: fecha.toLocaleDateString(),
+        hora: fecha.toLocaleTimeString([],{
+            hour:"2-digit",
+            minute:"2-digit"
+        }),
+        jugadores: jugadores.length,
+        ganador: jugadores
+                    .filter(j => j.cantidadLetras < j.maxLetras)[0]
+                    .nombreJugador.value,
+        segundo: jugadores
+                    .filter(j => j.cantidadLetras === j.maxLetras)
+                    .slice(-1)[0]?.nombreJugador.value || "-"
+    };
+
+    historial.unshift(partida);
+
+    localStorage.setItem(
+        "historialPartidas",
+        JSON.stringify(historial)
+    );
+}
+
+function mostrarHistorial(){
+
+    const historial = JSON.parse(
+        localStorage.getItem("historialPartidas")
+    ) || [];
+
+    listaHistorial.innerHTML = "";
+
+    if(historial.length===0){
+
+        listaHistorial.innerHTML=`
+
+        <div class="historial_vacio">
+            🐷<br>
+            Todavía no hay partidas registradas.
+        </div>
+        `;
+        return;
+    }
+
+    historial.forEach((partida,index)=>{
+        listaHistorial.innerHTML +=`
+        <div class="tarjeta_historial">
+            <div class="historial_top">
+                <span class="numero">
+                    Partida N°${historial.length-index}
+                </span>
+                <span class="fecha">
+                    ${partida.fecha}
+                    ${partida.hora}
+                </span>
+            </div>
+            <div class="historial_body">
+                <div>
+                    🏆
+                    <strong>${partida.ganador}</strong>
+                </div>
+                <div>
+                    🥈
+                    ${partida.segundo}
+                </div>
+            </div>
+            <div class="historial_footer">
+                👥 ${partida.jugadores} jugadores
+            </div>
+        </div>
+        `;
+    });
+}

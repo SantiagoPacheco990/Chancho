@@ -20,7 +20,7 @@
         </div>
         <div class="caja_botones">    
             <a class="img-casa" id="abrirModalVolverInicio"></a>
-            <a class="img_reloj" id="abrirModalVolverInicio"></a>
+            <a class="img_reloj" id="abrirModalHistorial"></a>
             <a class="img-reinicio" id="abrirModalReiniciar"></a>
             <a class="img_add_jugador" id="abrirModalReiniciar"></a>
         </div>
@@ -61,14 +61,19 @@
         </div>
     </dialog>
 
-    <dialog id="historial_partida">
-        <div class="container-contenido-modal volver_inicio">
-            <img src="../imagenes/chanchitos_grupo.png" class="imagen_chanchito_grupo">
-            <h2>Historial</h2>
-            <h4 class="texto-jugadores">¡Cuidado! Si regresas al inicio se perderá el estado de la partida actual</h4>
-            <div class="btn-modal">
-                <a href="../index.html" class="botones-modal" id="btn_volver">Volver al inicio</a>
-                <button type="button" class="botones-modal" id="cerrarModalVolverInicio">Cerrar</button>
+    <dialog id="modal_historial">
+        <div class="container-contenido-modal">
+            <div class="cabecera_historial">
+                <h2>Historial</h2>
+                <img src="../imagenes/chanchitos_grupo.png" class="imagen_chanchito_grupo">
+                <button id="cerrarHistorial">
+                    ✕
+                </button>
+            </div>
+            <div class="lista_historial">
+
+                <!-- Las tarjetas se agregan con JS -->
+
             </div>
         </div>
     </dialog>
