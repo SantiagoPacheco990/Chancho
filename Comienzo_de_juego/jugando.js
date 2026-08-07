@@ -252,6 +252,9 @@ function mostrarHistorial(){
                 </span>
                 <span class="fecha">
                     ${partida.fecha}
+                </span>
+                <span class="fecha">
+
                     ${partida.hora}
                 </span>
             </div>

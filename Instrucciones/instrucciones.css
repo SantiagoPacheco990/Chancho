@@ -7,6 +7,7 @@ body{
     background-position: center;
     font-family: 'Roboto';
     scroll-behavior: smooth;
+    padding-bottom: 50px;
 }
 
 html{
@@ -134,8 +135,8 @@ a{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     flex-wrap: wrap;
-    gap: 20px;
-    width: min(1400px, 95%);
+    gap: 15px;
+    width: min(1300px, 95%);
 }
 
 .caja_instruccion{
@@ -151,8 +152,7 @@ a{
         #9b1d7d,
         #6d114c
     ) ;
-    padding:30px;
-    gap:18px;
+    padding:25px;
     border-radius: 15px;
     border:2px solid #ffb8ef;
     transition:.35s;
@@ -170,10 +170,25 @@ a{
     display:flex;
     flex-direction:column;
     gap:17px;
+    background:linear-gradient(145deg,#ff52c4,#8b5cf6);
+    box-shadow:
+        0 0 20px rgba(255,90,200,.35),
+        inset 0 0 15px rgba(255,255,255,.15);
+    border:2px solid #ffb8ef;
 }
 
 .titulo_instruccion{
     font-size: 22px
+}
+
+.img-emoji-instruccion{
+    width: 120px;
+    height: auto;
+}
+
+.emoji_uno {
+    width: 200px;
+    height: auto;
 }
 
 /*-------------------------------------------------------------*/

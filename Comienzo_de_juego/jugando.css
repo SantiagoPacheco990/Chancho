@@ -425,15 +425,15 @@ dialog[open]{
 /******************************/
 
 #modal_historial{
+    position: relative;
     width: 650px;
-    max-width: 90%;
+    max-width: 100%;
     border: none;
     border-radius: 20px;
     padding: 25px;
     background: linear-gradient(180deg,#1d1636,#120f24);
     color: white;
-    max-height:80vh;
-    overflow:hidden;
+    height:80vh;
     border: 1px solid white;
     box-shadow: 0 0 30px rgba(0,0,0,.45);
 }
@@ -456,21 +456,35 @@ dialog[open]{
 /******************************/
 
 .cabecera_historial{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    
     padding-bottom:15px;
     border-bottom:1px solid rgba(255,255,255,.15);
 }
 
-.cabecera_historial h2{
-    margin:0;
-    color:white;
-    font-size:30px;
+.titulo_historial{
+    display:flex;
+    align-items:center;
+    flex-direction: column;
+}
+
+
+#modal_historial .cabecera_historial .tit_his{
+    background:linear-gradient(
+        180deg,
+        #fff2a6,
+        #ffd54f,
+        #d6a300
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:0 2px 6px rgba(0,0,0,.35);
+    font-weight:700;
+    font-size:50px;
 }
 
 .imagen_chanchito_grupo{
-    width: 25%;
+    width: 35%;
     height:auto;
 }
 
@@ -479,8 +493,11 @@ dialog[open]{
 /******************************/
 
 #cerrarHistorial{
-    width:35px;
-    height:35px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width:32px;
+    height:32px;
     border:none;
     border-radius:50%;
     background:#ff4b5c;
@@ -500,13 +517,15 @@ dialog[open]{
 /******************************/
 
 .lista_historial{
+    overflow-y:auto;
     display:flex;
     flex-direction:column;
+    align-items: stretch;
     gap:18px;
     overflow-y:auto;
-    max-height:450px;
     padding-right: 20px;
     padding-top: 15px;
+    padding:15px 10px 20px;
 }
 
 /******************************/
@@ -514,7 +533,7 @@ dialog[open]{
 /******************************/
 
 .lista_historial::-webkit-scrollbar{
-    width:8px;
+    width:7px;
 }
 
 .lista_historial::-webkit-scrollbar-track{
@@ -540,7 +559,11 @@ dialog[open]{
     border:1px solid #5c42b0;
     border-left:6px solid gold;
     border-radius:15px;
-    padding: 20px 50px;
+    width: 100%;
+    padding: 22px 28px;
+    max-width: 600px;
+    min-height:200px;
+    box-sizing: border-box;
     color:white;
     transition:.3s;
 }
@@ -558,10 +581,12 @@ dialog[open]{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap: 20px;
+    gap: 30px;
     margin-bottom:10px;
     font-size:13px;
     color:#b9c6ff;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    padding-bottom: 12px;
 }
 
 .numero{
@@ -577,6 +602,7 @@ dialog[open]{
 .historial_body{
     display:flex;
     flex-direction:column;
+    align-items: center;
     gap: 15px;
     font-size:17px;
 }
@@ -683,6 +709,7 @@ dialog[open]{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 100%;
     gap: 10px;
     position: relative; 
 }
@@ -900,6 +927,22 @@ a:active{
     .imagen_chanchito_volver_inicio{
         width: 80%
     }
+
+    /*MODAL HISTORIAL*/
+
+    #modal_historial{
+        max-width: 90%;
+    }
+
+    .imagen_chanchito_grupo{
+        width: 50%;
+        height:auto;
+    }
+
+    .historial_top{
+        gap: 20px;
+    }
+
     /*MODAL PARA REINICIAR LA PARTIDA*/
 
     .imagen_chanchito_reiniciar{
