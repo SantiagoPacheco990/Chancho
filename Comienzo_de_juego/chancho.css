@@ -116,7 +116,14 @@ h1{
     margin: 0;
 }
 
-/******Redes sociales******/
+/******REDES SOCIALES******/
+
+.container_redes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
 
 .redes img{
     margin-top: 12px;
@@ -127,6 +134,7 @@ h1{
     transform: translateY(-6px);
 }
 
+/*Para el Copyright*/
 p{
     position: absolute;
     color: white;

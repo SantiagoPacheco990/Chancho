@@ -45,6 +45,17 @@ const crearMarcadores = (jugadores) =>{
   }
 }
 
+// Función que sirve para obtener el nombre del jugador, si no tiene nombre, se le asigna un nombre por defecto
+function obtenerNombreJugador(marcador, indice) {
+    const nombre = marcador.nombreJugador?.value?.trim();
+
+    if (nombre) {
+        return nombre;
+    }
+
+    return `Jugador N°${indice + 1}`;
+}
+
 /*********Para guardar el estado de la partida************/
 
 function guardarEstadoPartida(marcadoresPartida) {
@@ -133,10 +144,13 @@ function jugadorGanador(jugadores) {
   // Si solo queda un jugador activo, es el ganador
   if (jugadoresActivos.length === 1) {
     const ganador = jugadoresActivos[0];
+    const indiceGanador = jugadores.indexOf(ganador);
+    const nombreGanador = obtenerNombreJugador(ganador, indiceGanador);
+    
     const titulo_del_ganador = document.getElementById("titulo_ganador"); // Es el h2 del modal del ganador
     modal_jugador_ganador.showModal();
     guardarHistorial(jugadores);  // ES PARA EL HISTORIAL
-    titulo_del_ganador.textContent = `🏆 ${ganador.nombreJugador.value} ganó la partida 🏆`;
+    titulo_del_ganador.textContent = `🏆 ${nombreGanador} ganó la partida 🏆`;
   }
 }
 
@@ -209,26 +223,57 @@ cerrarHistorial.addEventListener("click", () => {
     modalHistorial.close();
 });
 
-function guardarHistorial(jugadores){
-    const historial = JSON.parse(localStorage.getItem("historialPartidas")) || [];
+function guardarHistorial(jugadores) {
+    const historial =
+        JSON.parse(localStorage.getItem("historialPartidas")) || [];
     const fecha = new Date();
+    
+    // Buscar ganador
+    const indiceGanador = jugadores.findIndex(
+        jugador => jugador.cantidadLetras < jugador.maxLetras
+    );
+    const ganador = jugadores[indiceGanador];
+    
+    // Obtener nombre real o "Jugador N°X"
+    const nombreGanador = obtenerNombreJugador(
+        ganador,
+        indiceGanador
+    );
+
+    // Buscar segundo
+    const jugadoresEliminados = jugadores
+        .map((jugador, indice) => ({
+            jugador,
+            indice
+        }))
+        .filter(
+            item => item.jugador.cantidadLetras === item.jugador.maxLetras
+        );
+
+    const segundoJugador =
+        jugadoresEliminados[jugadoresEliminados.length - 1];
+
+    let nombreSegundo = "-";
+
+    if (segundoJugador) {
+        nombreSegundo = obtenerNombreJugador(
+            segundoJugador.jugador,
+            segundoJugador.indice
+        );
+    }
+
     const partida = {
         fecha: fecha.toLocaleDateString(),
-        hora: fecha.toLocaleTimeString([],{
-            hour:"2-digit",
-            minute:"2-digit"
+        hora: fecha.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit"
         }),
         jugadores: jugadores.length,
-        ganador: jugadores
-                    .filter(j => j.cantidadLetras < j.maxLetras)[0]
-                    .nombreJugador.value,
-        segundo: jugadores
-                    .filter(j => j.cantidadLetras === j.maxLetras)
-                    .slice(-1)[0]?.nombreJugador.value || "-"
+        ganador: nombreGanador,
+        segundo: nombreSegundo
     };
 
     historial.unshift(partida);
-
     localStorage.setItem(
         "historialPartidas",
         JSON.stringify(historial)
@@ -242,11 +287,8 @@ function mostrarHistorial(){
     ) || [];
 
     listaHistorial.innerHTML = "";
-
     if(historial.length===0){
-
         listaHistorial.innerHTML=`
-
         <div class="historial_vacio">
             🐷<br>
             Todavía no hay partidas registradas.
@@ -266,7 +308,6 @@ function mostrarHistorial(){
                     ${partida.fecha}
                 </span>
                 <span class="fecha">
-
                     ${partida.hora}
                 </span>
             </div>

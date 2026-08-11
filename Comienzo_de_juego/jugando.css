@@ -147,17 +147,17 @@ a{
 }
 
 /*************************************************************/
-
 /**************ELEMENTOS DEL JUEGO**************/
-
 
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 50px 80px;
+    gap: 50px 70px;
     width: 100%;
+    max-width: 1400px;
     margin: auto;
+    box-sizing: border-box;
 }
 
 .marcador {
@@ -528,10 +528,7 @@ dialog[open]{
     padding:15px 10px 20px;
 }
 
-/******************************/
 /* SCROLL HISTORIAL*/
-/******************************/
-
 .lista_historial::-webkit-scrollbar{
     width:7px;
 }
@@ -550,10 +547,7 @@ dialog[open]{
     background:#a855f7;
 }
 
-/******************************/
 /* TARJETA HISTORIAL */
-/******************************/
-
 .tarjeta_historial{
     background:linear-gradient(160deg,#241845,#18152f);
     border:1px solid #5c42b0;
@@ -573,10 +567,7 @@ dialog[open]{
     box-shadow:0 0 18px rgba(156,93,255,.35);
 }
 
-/******************************/
 /* PARTE SUPERIOR HISTORIAL */
-/******************************/
-
 .historial_top{
     display:flex;
     justify-content:space-between;
@@ -595,10 +586,7 @@ dialog[open]{
 
 }
 
-/******************************/
 /* CUERPO HISTORIAL*/
-/******************************/
-
 .historial_body{
     display:flex;
     flex-direction:column;
@@ -611,10 +599,7 @@ dialog[open]{
     color:#ffd54f;
 }
 
-/******************************/
 /* PARTE INFERIOR HISTORIAL*/
-/******************************/
-
 .historial_footer{
     margin-top: 15px;
     padding-top: 12px;
@@ -625,10 +610,8 @@ dialog[open]{
     justify-content:center;
 }
 
-/******************************/
-/* SIN HISTORIAL */
-/******************************/
 
+/* SIN HISTORIAL */
 .historial_vacio{
     display:flex;
     flex-direction:column;
@@ -660,14 +643,12 @@ dialog[open]{
     background: linear-gradient(180deg,#0b36ff,#001d8d);
 }
 
-
 .imagen_chanchito_campeon{
     width: 40%;
     height: auto;
 }
 
-/* MODAL AGREGAR JUGADOR */
-
+/******* MODAL AGREGAR JUGADOR *******/
 #modal_agregar_jugador{
     background: linear-gradient(180deg, #1d1636, #120f24);
     color: white;
@@ -688,173 +669,83 @@ dialog[open]{
     gap: 12px;
 }
 
+.imagen_chanchito_agregar_jugador{
+        width: 90%;
+    }
 
-/*================================*/
-/* CARTEL LÍMITE DE JUGADORES */
-/*================================*/
 
-div.mensaje-limite{
-    position: fixed;
-
+/**** CARTEL LÍMITE DE JUGADORES ****/
+.mensaje-limite {
+    position: fixed !important;
     top: 30px;
     left: 50%;
-
-    width: 430px;
+    transform: translateX(-50%) !important;
+    width: 45%;
+    max-width: 430px;
+    min-width: 300px;
     height: 55px;
-
+    min-height: 55px;
+    max-height: 55px;
     box-sizing: border-box;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     gap: 12px;
-
     padding: 8px 18px;
-
     background: linear-gradient(
         135deg,
         #3a0d25,
         #250b20
     );
-
     border: 2px solid #ff4b5c;
     border-radius: 8px;
     outline: none;
     box-shadow:
         0 5px 20px rgba(0, 0, 0, .45),
         0 0 12px rgba(255, 75, 92, .25);
-
     color: white;
-
-    z-index: 999999;
-
-    /* Centrado sin transform */
-    margin-left: -215px;
-
-    /* Estado inicial */
+    z-index: 99;
     opacity: 0;
     visibility: hidden;
-
-    /* IMPORTANTE */
-    transform: none;
-
-    /* SOLO animamos opacity */
-    transition: opacity .3s ease;
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
 }
-
 
 /* CARTEL VISIBLE */
-
-div.mensaje-limite.mostrar{
+.mensaje-limite.mostrar {
     opacity: 1;
     visibility: visible;
-
-    /* No cambia tamaño ni posición */
-    transform: none;
+    transform: translateX(-50%) !important;
 }
 
-
-/*================================*/
 /* ICONO */
-/*================================*/
-
-div.mensaje-limite .icono-alerta{
+.mensaje-limite .icono-alerta {
     flex-shrink: 0;
-
     width: 32px;
     height: 32px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     border-radius: 50%;
-
     background: #ff4b5c;
-
     color: white;
-
     font-size: 20px;
     font-weight: bold;
-
     line-height: 1;
 }
 
-
-/*================================*/
 /* TEXTO */
-/*================================*/
-
-div.mensaje-limite .texto-limite{
+.mensaje-limite .texto-limite {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     gap: 2px;
-
     height: auto;
-
     white-space: nowrap;
 }
 
-
-div.mensaje-limite .texto-limite strong{
-    margin: 0;
-    padding: 0;
-
-    color: #ff727f;
-
-    font-size: 16px;
-    line-height: 18px;
-}
-
-
-div.mensaje-limite .texto-limite span{
-    margin: 0;
-    padding: 0;
-
-    color: #eeeeee;
-
-    font-size: 13px;
-    line-height: 15px;
-}
-
-
-/*================================*/
-/* ICONO */
-/*================================*/
-
-.icono-alerta{
-    flex-shrink: 0;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    background: #ff4b5c;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 1;
-}
-
-
-/*================================*/
-/* TEXTO */
-/*================================*/
-
-.texto-limite{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2px;
-    height: 100%;
-    white-space: nowrap;
-}
-
-.texto-limite strong{
+.mensaje-limite .texto-limite strong {
     margin: 0;
     padding: 0;
     color: #ff727f;
@@ -862,7 +753,7 @@ div.mensaje-limite .texto-limite span{
     line-height: 18px;
 }
 
-.texto-limite span{
+.mensaje-limite .texto-limite span {
     margin: 0;
     padding: 0;
     color: #eeeeee;
@@ -1163,6 +1054,73 @@ a:active{
         width: 70%;
     }
 
+    /*MODAL PARA AGREGAR UN JUGADOR*/
+    .imagen_chanchito_agregar_jugador{
+        width: 100%;
+    }
+
+    .mensaje-limite {
+
+        top: 20px;
+
+        width: 90%;
+        min-width: 0;
+        max-width: none;
+
+        height: 55px;
+        min-height: 55px;
+        max-height: 55px;
+
+        padding: 8px 12px;
+
+        gap: 10px;
+
+        border-radius: 8px;
+
+        transform: translateX(-50%) !important;
+    }
+
+
+    .mensaje-limite.mostrar {
+
+        transform: translateX(-50%) !important;
+    }
+
+
+    .mensaje-limite .icono-alerta {
+
+        width: 30px;
+        height: 30px;
+
+        font-size: 18px;
+    }
+
+
+    .mensaje-limite .texto-limite {
+
+        white-space: normal;
+
+        text-align: left;
+
+        gap: 1px;
+    }
+
+
+    .mensaje-limite .texto-limite strong {
+
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+
+    .mensaje-limite .texto-limite span {
+
+        font-size: 11px;
+        line-height: 14px;
+    }
+
+
+    /*MODAL GANADOR DE LA PARTIDA*/
     .imagen_chanchito_campeon{
         width: 80%;
     }
