@@ -1,6 +1,6 @@
 import {Marcador} from "./Marcador.js";
 
-/****************Modales de Reiniciar y Volver****************/
+/****************MODALES****************/
 
 /****************Modal Reiniciar****************/
 const modalReiniciar = document.getElementById("modal_reiniciar");
@@ -103,7 +103,21 @@ function restaurarEstadoPartida() {
 const params = new URLSearchParams(window.location.search);
 const cantidadJugadores = parseInt(params.get("cantidad"));
 
-crearMarcadores(cantidadJugadores);
+const estadoGuardado = JSON.parse(
+    localStorage.getItem("estadoPartida")
+);
+
+if (estadoGuardado) {
+    // Si existe una partida guardada,
+    // creamos la cantidad de jugadores guardados
+    crearMarcadores(estadoGuardado.length);
+
+} else {
+    // Si es una partida nueva,
+    // usamos la cantidad de jugadores de la URL
+    crearMarcadores(cantidadJugadores);
+}
+
 restaurarEstadoPartida();
 
 
@@ -151,8 +165,6 @@ function reiniciarMarcadores (vecMarc) {
     marcador.ocultarBtnVolver();
   })
 }
-
-
 
 /*********************************************/
 
@@ -274,4 +286,100 @@ function mostrarHistorial(){
         </div>
         `;
     });
+}
+
+
+/********* AGREGAR JUGADOR *********/
+
+const modalAgregarJugador =
+    document.getElementById("modal_agregar_jugador");
+
+const abrirModalAgregarJugador =
+    document.getElementById("abrirModalAgregarJugador");
+
+const cerrarModalAgregarJugador =
+    document.getElementById("cerrarModalAgregar");
+
+const confirmarAgregarJugador =
+    document.getElementById("confirmarAgregarJugador");
+
+
+/**************** ABRIR MODAL ****************/
+
+abrirModalAgregarJugador.addEventListener("click", () => {
+    // Máximo de jugadores
+    if (marcadores.length >= 12) {
+        mostrarMensajeLimite();
+        return;
+    }
+    modalAgregarJugador.showModal();
+});
+
+
+/**************** CERRAR MODAL ****************/
+
+cerrarModalAgregarJugador.addEventListener("click", () => {
+
+    modalAgregarJugador.close();
+
+});
+
+
+/**************** CONFIRMAR AGREGAR ****************/
+
+confirmarAgregarJugador.addEventListener("click", () => {
+
+    agregarJugador();
+
+    modalAgregarJugador.close();
+
+});
+
+
+/**************** FUNCIÓN AGREGAR JUGADOR ****************/
+
+function agregarJugador() {
+
+    // Verificar nuevamente el límite
+    if (marcadores.length >= 12) {
+        mostrarMensajeLimite();
+        return;
+    }
+
+    const container = document.querySelector(".container");
+
+    // Crear nuevo marcador
+    const nuevoMarcador = new Marcador(
+        container,
+
+        // Guardar estado
+        () => guardarEstadoPartida(marcadores),
+
+        // Comprobar ganador
+        () => jugadorGanador(marcadores)
+    );
+
+    // Agregarlo al array
+    marcadores.push(nuevoMarcador);
+
+    // Guardar la nueva cantidad de jugadores
+    guardarEstadoPartida(marcadores);
+
+}
+
+//MOSTRAR MENSAJE DE LIMITE DE JUGADORES
+const mensajeLimiteJugadores =
+    document.getElementById("mensajeLimiteJugadores");
+
+let timeoutMensajeLimite;
+
+function mostrarMensajeLimite(){
+
+    clearTimeout(timeoutMensajeLimite);
+
+    mensajeLimiteJugadores.classList.add("mostrar");
+
+    timeoutMensajeLimite = setTimeout(() => {
+        mensajeLimiteJugadores.classList.remove("mostrar");
+    }, 3000);
 }

@@ -22,7 +22,7 @@
             <a class="img-casa" id="abrirModalVolverInicio"></a>
             <a class="img_reloj" id="abrirModalHistorial"></a>
             <a class="img-reinicio" id="abrirModalReiniciar"></a>
-            <a class="img_add_jugador" id="abrirModalReiniciar"></a>
+            <a class="img_add_jugador" id="abrirModalAgregarJugador"></a>
         </div>
     </div>
     <div class="container"></div>
@@ -92,6 +92,26 @@
         </div>
     </dialog>
 
+    <dialog id="modal_agregar_jugador">
+        <div class="container-contenido-modal agregar_jugador">
+            <img src="../imagenes/Chanchito_reiniciar.png" class="imagen_chanchito_reiniciar">
+            <h2>¿Agregar un jugador?</h2>
+            <h4 class="texto-jugadores">Se agregará un nuevo marcador a la partida actual</h4>
+            <div class="btn-modal">
+                <button type="button" class="botones-modal" id="confirmarAgregarJugador">Agregar</button>
+                <button type="button" class="botones-modal" id="cerrarModalAgregar">Cerrar</button>
+            </div>
+        </div>
+    </dialog>
+
+    <div id="mensajeLimiteJugadores" class="mensaje-limite">
+        <span class="icono-alerta">!</span>
+
+        <div class="texto-limite">
+            <strong>No se pueden agregar más jugadores</strong>
+            <span>El máximo es de 12 jugadores.</span>
+        </div>
+    </div>
 
     <dialog id="modal_jugador_ganador">
         <div class="container-contenido-modal jugador_ganador">
